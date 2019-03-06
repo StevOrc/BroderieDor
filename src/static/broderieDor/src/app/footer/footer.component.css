@@ -1,0 +1,58 @@
+footer{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background: black;
+}
+
+footer i{
+    font-size: 40px;
+}
+
+footer hr{
+    background: white;
+}
+
+footer h3{
+    color: white;
+    margin-top : 20px;
+    text-align: left;
+}
+
+footer a{
+    text-decoration: none;
+    color: white;
+}
+
+footer a:hover{
+    text-decoration: none;
+    color : #DAA520;
+}
+
+footer #aboutus{
+    width: 50%;
+}
+
+footer #aboutus ul{
+    list-style: none;
+}
+
+footer #contact{
+    width: 50%;
+}
+
+footer #contact ul{
+    list-style: none;
+}
+
+/*RESPONSIVE*/
+@media screen and (max-width: 680px){
+
+    footer #contact{
+        width: 100%;
+    }
+
+    footer #aboutus{
+        width: 100%;
+    }
+}

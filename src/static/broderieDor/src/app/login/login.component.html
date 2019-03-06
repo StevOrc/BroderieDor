@@ -1,0 +1,25 @@
+<div *ngIf="isLoggedIn; else loggedOut" id="title">
+    <h2>
+        Vous êtes connecté, bienvenue {{ username }}
+    </h2>
+
+    <p>Vous pouvez accéder à votre espace personnel</p>
+</div>
+<ng-template #loggedOut>
+        <form [formGroup]="formLogin">
+            <h2 class="text-center">Connectez vous</h2>       
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Pseudo" formControlName="username">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Mot de passe" formControlName="password">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block" (click)="onSubmit()">Log in</button>
+            </div>
+            <div class="clearfix">
+                <a href="#" class="pull-right">Mot de passe oublié ?</a>
+            </div>        
+        </form>
+        <p class="text-center"><a href="/signup">Créer un compte</a></p>
+</ng-template>

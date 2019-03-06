@@ -1,0 +1,69 @@
+@import url(header.css);
+@import url(footer.css);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+}
+
+li{
+    list-style: none;
+}
+
+hr{
+    background: gray;
+}
+
+
+.jumbotron h1{
+    font-family: 'Roboto', sans-serif;
+}
+
+.jumbotron p{
+    font-family: 'Roboto', sans-serif;
+}
+
+/* SECTION PRODUIT */
+main#product{
+    margin-top: 30px;
+    width: 50%;
+    margin-left : 200px;
+}
+
+main#product div.clothing{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+main#product div.clothing div{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: stretch;
+    margin-left: 30px;
+    width: 250px;
+}
+
+main#product div.clothing div h4{
+    color : #DAA520;
+}
+
+main#product div.clothing div label{
+    width: 150px;
+}
+
+main#product div.clothing div input[type=text]{
+    width: 30px;
+}
+
+main#product img{
+    width: 150px;
+    height: auto;
+    border : 1px solid grey;
+    border-radius: 2px;
+}

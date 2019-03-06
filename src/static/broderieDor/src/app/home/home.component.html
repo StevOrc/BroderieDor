@@ -1,0 +1,66 @@
+<div>
+    <app-carousel></app-carousel>
+    <div id="navbas">
+        <nav role="navigation" id="navNavbas">
+            <ul>
+                <li><a href="#" class="linkNavbas"><i class="fas fa-home"></i></a></li>
+                <!-- Loop *ngFor on listThemes to genrate nav menu links depending on theme in Database.theme-->
+                <li *ngFor="let theme of listThemes"><a [attr.href]="'home#jum' + theme.nom" target="_self"
+                    class="linkNavbas">{{theme.name}}</a></li>
+                <li><a href="/produit" class="linkNavbas">Boutique d'Or</a></li>
+                <li><a href="home#contact" target="_self" class="linkNavbas">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <main>
+            <hr id="hrhaut">
+            <section id="descriptif">
+                 <br><br> 
+                 <h1>Avec Broderie d'OR, Brodez vos idées</h1>
+                 <p>Dans les moments importants d'une vie, un mariage, une naissance, un baptême ou autre fête marquante pour vous et vos
+                     proches, Broderie d'Or vous donne l'occasion de marquer cet événement en personalisant votre cadeaux. 
+                     Brodez vos <em>couvertures, serviettes, peluches, gants, peignoirs</em> etc...<br> Nous vous accompagnons
+                     à travers nos différents thèmes ci-dessous proposés à des tarifs très avantageux avec des produits de qualités.
+                     Vous avez également la possibilité de commander un produit seul dans notre rubrique " <a href="boutiqueDor.html">boutique d'or</a>".
+                 </p>
+                 <h2>Voici nos thèmes : </h2>
+            </section>
+            <hr id="hrbas">
+
+            <!-- Loop *ngFor on listThemes to genrate Jumbotron for each theme present in Database.theme -->
+            <div *ngFor="let theme of listThemes; let i = index" class="conatiner custom">
+                <div class="container-fluid jumbotron jumbotron-fluid" [attr.id]=" 'jum' + theme.nom">
+                    <h2 class="dislay-4 container"> {{theme.name}} </h2>
+                    <p class="container">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam sed necessitatibus rem dolorum temporibus ab
+                        labore ipsa? Maxime, corrupti officiis sapiente at, ea magni ipsum modi eos delectus quam quidem.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero soluta ad, neque nostrum animi ipsa harum,
+                        eligendi obcaecati explicabo consectetur deleniti, deserunt temporibus totam quas ipsam esse amet eos non.</p>
+                </div>
+                <div class="container-fluid">
+                    <div class="offre">
+                        <!-- Then, loop on each panel by theme to generate a card -->
+                        <div  *ngFor="let basket of listThemes[i].baskets;" [class]=" 'card col-lg-3 mb-4 ml-auto mr-auto ' +basket.name">
+                            <div class="card-header">
+                            <h5 class="font-weight-normal"><i class="fas fa-award"></i> Panier {{basket.name}} {{basket.price}} €</h5>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <ul>
+                                    <!-- Finnaly, loop on each panel to generate the body of all product by panel -->
+                                    <li *ngFor="let basketLine of basket.basketLines"> {{basketLine.quantity}} 
+                                        {{basketLine.product.name}}</li>
+                                </ul>
+                            <button type="button" class="mt-auto btn btn-lg btn-block btn-primary" (click)="createOrder();
+                                    commande.prix=basket.price;
+                                    commande.nomProduit=basket.name;
+                                    commande.idProduit=basket.idBasket"
+                                    
+                                >Commander</button>
+                            </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+</div>
+
+<app-footer></app-footer>

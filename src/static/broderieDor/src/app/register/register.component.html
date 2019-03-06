@@ -1,0 +1,29 @@
+
+  <form [formGroup]="formSignUp" novalidate>
+      <h2 class="text-center">Creer un compte</h2>       
+      <div class="form-group">
+          <input type="text" class="form-control" placeholder="nom" formControlName="lastName">
+      </div>
+      <div class="form-group">
+          <input type="text" class="form-control" placeholder="prenom" formControlName="firstName">
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="email@exemple.fr" formControlName="email">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="phone (entrer sans espace)" formControlName="phone">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="pseudo (5 à 30 caractères)" formControlName="username">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" placeholder="mot de passe (5 à 30 caractères)" formControlName="password">
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" placeholder="confirmer mot de passe" formControlName="confirmPassword">
+    </div>
+      <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block" (click)="onSubmit()">Valider</button>
+      </div>
+  </form>
+  <p class="text-center"><a href="/login">Déjà un compte, connectez-vous</a></p>

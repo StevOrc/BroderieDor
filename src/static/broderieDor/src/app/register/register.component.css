@@ -1,0 +1,29 @@
+form{
+    width: 40%;
+    margin: auto;
+    margin-top: 30px;
+    padding: 20px;
+    border: 20px solid black;
+}
+
+.btn{
+
+}
+
+@media screen and (max-width: 900px){
+    form{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 800px){
+    form{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 500px){
+    form{
+        width: 90%;
+    }
+}

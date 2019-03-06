@@ -1,0 +1,33 @@
+form{
+    width: 35%;
+    margin: auto;
+    margin-top: 30px;
+    padding: 20px;
+    border: 20px solid black;
+}
+
+#title{
+    margin-top: 30px; 
+}
+
+h2, p{
+    text-align: center; 
+}
+
+@media screen and (max-width: 900px){
+    form{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 800px){
+    form{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 500px){
+    form{
+        width: 90%;
+    }
+}

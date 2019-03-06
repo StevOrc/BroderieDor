@@ -1,0 +1,45 @@
+<header>
+  <nav id="navhaut">
+      <div id="logo">
+          <!-- <img src="assets/images/logo.gif" alt="logo"> -->
+          <img src="../../assets/images/LogoBis3.svg" alt="logo broderie d'or">
+      </div>
+      <div id="login">
+          <small>Bienvenue sur Broderie d'OR, broderie personalisée</small>
+          <div id="icons">
+              <a *ngIf="!isLogged" href="/login" id="iconLogin">
+                <small>S'inscrire / Se connecter </small> <i class="fas fa-user"></i>
+              </a>
+              <button class="btn" *ngIf="!isLoggedOut" id="logout" (click)="logout()">
+                  <i class="fas fa-sign-out-alt"></i> Se deconnecter
+              </button>
+              <a *ngIf="isLogged && authority == 'admin' " href="#">
+                  <small>DashBoard </small> <i class="fas fa-chart-bar"></i>
+              </a>
+              <a *ngIf="isLogged && authority == 'user' " href="#">
+                    <small>Espace Personel </small> <i class="fas fa-chart-bar"></i>
+              </a>
+          </div>
+      </div>
+  </nav>
+</header>
+
+<div id="navMediumSmall">
+    <nav class="navbar navbar-light" id="navResponsvie">
+      <button id="burgerButton" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link" href="#jumNaissance">Naissance</a></li>
+          <li class="nav-item"><a class="nav-link" href="#jumBaptême">Baptême</a></li>
+          <li class="nav-item"><a class="nav-link" href="#jumMariage">Mariage</a></li>
+          <li class="nav-item"><a class="nav-link" href="#jumSolo">Solo</a></li>
+          <li class="nav-item"><a class="nav-link" href="boutiqueDor.html">Boutique d'Or</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+   </div>
