@@ -1,13 +1,13 @@
 form{
     width: 35%;
     margin: auto;
-    margin-top: 30px;
+    margin-top: 100px;
     padding: 20px;
     border: 20px solid black;
 }
 
 #title{
-    margin-top: 30px; 
+    margin-top: 100px; 
 }
 
 h2, p{

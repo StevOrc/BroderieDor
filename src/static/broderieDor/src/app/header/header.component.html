@@ -13,10 +13,10 @@
               <button class="btn" *ngIf="!isLoggedOut" id="logout" (click)="logout()">
                   <i class="fas fa-sign-out-alt"></i> Se deconnecter
               </button>
-              <a *ngIf="isLogged && authority == 'admin' " href="#">
+              <a *ngIf="isLogged && authority == 'admin' " href="/dashboard">
                   <small>DashBoard </small> <i class="fas fa-chart-bar"></i>
               </a>
-              <a *ngIf="isLogged && authority == 'user' " href="#">
+              <a *ngIf="isLogged && authority == 'user' " href="/userprofil">
                     <small>Espace Personel </small> <i class="fas fa-chart-bar"></i>
               </a>
           </div>
@@ -33,10 +33,6 @@
     
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item"><a class="nav-link" href="#jumNaissance">Naissance</a></li>
-          <li class="nav-item"><a class="nav-link" href="#jumBaptême">Baptême</a></li>
-          <li class="nav-item"><a class="nav-link" href="#jumMariage">Mariage</a></li>
-          <li class="nav-item"><a class="nav-link" href="#jumSolo">Solo</a></li>
           <li class="nav-item"><a class="nav-link" href="boutiqueDor.html">Boutique d'Or</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>

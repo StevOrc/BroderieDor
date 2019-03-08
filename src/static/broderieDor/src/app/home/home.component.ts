@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router"
 
 import { Theme } from '../model/theme';
-import { ThemeService } from '../theme/theme.service';
+import { ThemeService } from '../service/theme.service';
 import { Commande } from '../model/commande';
 import { DataService } from '../dataService/DataService';
 

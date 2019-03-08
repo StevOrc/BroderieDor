@@ -120,5 +120,13 @@ public class Product {
 	public void setBasketLines(List<BasketLine> basketLines) {
 		this.basketLines = basketLines;
 	}
+
+	@Override
+	public String toString() {
+		return "Product [idProduct=" + idProduct + ", name=" + name + ", price=" + price + ", stock=" + stock
+				+ ", urlPhoto=" + urlPhoto + "]";
+	}
+	
+	
 		
 }

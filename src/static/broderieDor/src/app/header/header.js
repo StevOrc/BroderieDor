@@ -12,9 +12,7 @@ const app = (function(){
     }
 
     function onScrollHideNavMenu(navResponsvie, prevScroll){
-        console.log("AAA : "+prevScroll);
         var currentScroll = window.pageYOffset;
-        console.log("BBB : "+currentScroll);
         if(prevScroll === currentScroll || currentScroll <285) {
             navResponsvie.style.top = "0";
           }

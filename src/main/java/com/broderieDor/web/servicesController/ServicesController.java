@@ -17,8 +17,8 @@ import com.broderieDor.model.theme.Theme;
 import com.broderieDor.service.IServices;
 
 @RestController
-@CrossOrigin
-@RequestMapping("/api")
+@CrossOrigin(origins = "*", maxAge = 3600)
+@RequestMapping("/api/common")
 public class ServicesController {
 
 	
@@ -45,8 +45,8 @@ public class ServicesController {
 	}
 	
 	@GetMapping("/produit")
-	public List<Product> getAllProduct(){
+	public ResponseEntity<?> getAllProduct(){
 		
-		return this.services.allProducts();
+		return new ResponseEntity<List<Product>>(this.services.allProducts(), HttpStatus.OK);
 	}
 }

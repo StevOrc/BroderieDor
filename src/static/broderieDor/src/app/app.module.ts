@@ -10,25 +10,21 @@ import { AppComponent } from './app.component';
 import { ContentComponent } from './content/content.component';
 import { ProduitComponent } from './produit/produit.component';
 import { CommandeComponent } from './commande/commande.component';
-import { LigneCommandeComponent } from './ligne-commande/ligne-commande.component';
-import { ThemeComponent } from './theme/theme.component';
-import { LignePanierComponent } from './ligne-panier/ligne-panier.component';
 
 import { ProduitService } from './produit/produit.service';
-import { ThemeService } from './theme/theme.service';
-import { LigneCommandeService } from './ligne-commande/ligneCommande.service';
+//import { ThemeService } from './service/theme.service';
 import { CommandeService } from './commande/commande.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { HomeComponent } from './home/home.component';
-import { PanierComponent } from './panier/panier.component';
-import { PanierService } from './panier/panier.service';
-import { LignePanierService } from './ligne-panier/lignePanier.service';
 import { DataService } from './dataService/DataService';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserspaceComponent } from './userspace/userspace.component';
+import { AdminService } from './service/admin.service';
+import { UserService } from './service/user.service';
 
 @NgModule({
   declarations: [
@@ -36,32 +32,27 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ContentComponent,
     ProduitComponent,
     CommandeComponent,
-    LigneCommandeComponent,
-    ThemeComponent,
     HeaderComponent,
     FooterComponent,
     CarouselComponent,
     HomeComponent,
-    PanierComponent,
-    LignePanierComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    UserspaceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     ProduitService,
-    ThemeService,
-    LigneCommandeService,
     CommandeService,
-    PanierService,
-    LignePanierService,
-    DataService
+    DataService,
+    AdminService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LigneCommandeComponent } from './ligne-commande.component';
+import { UserspaceComponent } from './userspace.component';
 
-describe('LigneCommandeComponent', () => {
-  let component: LigneCommandeComponent;
-  let fixture: ComponentFixture<LigneCommandeComponent>;
+describe('UserspaceComponent', () => {
+  let component: UserspaceComponent;
+  let fixture: ComponentFixture<UserspaceComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LigneCommandeComponent ]
+      declarations: [ UserspaceComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LigneCommandeComponent);
+    fixture = TestBed.createComponent(UserspaceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

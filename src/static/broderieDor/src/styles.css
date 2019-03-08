@@ -1,1 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+#navbas{
+    width: 100%;
+    margin: auto;
+    height: 50px;
+    background: white;
+    border-bottom: 1px solid white;
+    z-index: 99999;
+}
+
+
+#navbas nav ul li a{
+    transition: 0.2s;
+    height: 50px;
+    color : black;
+}
+
+#navbas nav ul li a:hover{
+    border-bottom: 3px solid #DAA520;
+}
+
+#navbas{
+    position: absolute;
+    top : 95px;
+}
+
+#navbas nav{
+    width: 80%;
+    margin: auto;
+    height: 40px;
+    background: white;
+}
+
+#navbas #endspace{
+    width: 15%;
+}
+
+#navbas nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+#navbas nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: space-around; 
+}
+
+#navbas nav ul a{
+    display: block;
+    text-decoration: none;
+    color : black;
+    line-height: 50px;
+    transition: 0.5s;
+    font-size: 1.1em;
+}
+
+#navMediumSmall{
+    display: none;
+}

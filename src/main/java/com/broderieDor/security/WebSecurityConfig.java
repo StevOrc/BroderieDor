@@ -61,7 +61,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	        http.cors().and().csrf().disable().
 	                authorizeRequests()
 	                .antMatchers("/api/auth/**").permitAll() // authorisation d'accéder à toute les ressources de "api/auth/**"
-	                .antMatchers("/api/**").permitAll() // accès autorisé pour les ressources /api/**
+	                .antMatchers("/api/common/**").permitAll() // accès autorisé pour les ressources /api/**
 	                .anyRequest().authenticated() // Pour toute les autres ressources, il faut être authentifié
 	                .and()
 	                //Si il y erreur lors de l'authenfication => une erreur est envoyé dans la response 401
