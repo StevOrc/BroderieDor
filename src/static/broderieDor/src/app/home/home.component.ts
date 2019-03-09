@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   commande: Commande;
 
-  constructor(public themeSerive: ThemeService, private route: Router, private dataService: DataService) { }
+  constructor(public themeSerive: ThemeService, private route: Router, private dataService: DataService){ }
 
   ngOnInit() {
     this.allThemes();

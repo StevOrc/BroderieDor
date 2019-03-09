@@ -1,5 +1,24 @@
+<div id="navbas">
+    <nav role="navigation" id="navNavbas">
+        <ul>
+            <li><a href="#" class="linkNavbas"><i class="fas fa-home"></i></a></li>
+            <!-- Loop *ngFor on listThemes to genrate nav menu links depending on theme in Database.theme-->
+            <li><a href="/home" class="linkNavbas">Accueil</a></li>
+            <li><a href="/produit" class="linkNavbas">Boutique d'Or</a></li>
+            <li><a href="produit#contact" target="_self" class="linkNavbas">Contact</a></li>
+        </ul>
+    </nav>
+</div>
 
-  <form [formGroup]="formSignUp" novalidate>
+<div *ngIf="isSignedUp" id="success">
+    <h2>
+       Félicitation vous êtes maintenant enregistré ! 
+    </h2>
+    <p>Connectez vous pour accéder à votre espace perso et réaliser votre première commande !</p>
+    <button class="btn btn-success" (click)="initPage()">OK</button>
+</div>
+
+  <form *ngIf="!isSignedUp" [formGroup]="formSignUp" novalidate>
       <h2 class="text-center">Creer un compte</h2>       
       <div class="form-group">
           <input type="text" class="form-control" placeholder="nom" formControlName="lastName">

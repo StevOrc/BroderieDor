@@ -25,6 +25,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserspaceComponent } from './userspace/userspace.component';
 import { AdminService } from './service/admin.service';
 import { UserService } from './service/user.service';
+import { ThemeComponent } from './theme/theme.component';
+import { DashboardBasketComponent } from './dashboard-basket/dashboard-basket.component';
+import { DashboardClientComponent } from './dashboard-client/dashboard-client.component';
+import { DashboardCommandeComponent } from './dashboard-commande/dashboard-commande.component';
+import { DashboardProduitComponent } from './dashboard-produit/dashboard-produit.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +44,12 @@ import { UserService } from './service/user.service';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    UserspaceComponent
+    UserspaceComponent,
+    ThemeComponent,
+    DashboardBasketComponent,
+    DashboardClientComponent,
+    DashboardCommandeComponent,
+    DashboardProduitComponent
   ],
   imports: [
     BrowserModule,

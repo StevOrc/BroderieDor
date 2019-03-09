@@ -39,6 +39,13 @@ public class AdminController {
 	}
 	
 	@PreAuthorize("hasRole('ADMIN')")
+	@PostMapping("/product/create")
+	public ResponseEntity<?> createProduct(@RequestBody Product product){
+		
+		return new ResponseEntity<Product>(this.adminService.addProduct(product), HttpStatus.OK);
+	}
+	
+	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/product/update")
 	public ResponseEntity<?> updateProduct(@RequestBody Product product){
 		

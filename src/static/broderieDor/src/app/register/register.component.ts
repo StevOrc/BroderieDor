@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { AuthService } from '../auth/auth.service';
 import { SignUpInfo } from '../auth/signup-info';
@@ -12,13 +13,12 @@ import { SignUpInfo } from '../auth/signup-info';
 export class RegisterComponent implements OnInit {
 
   formSignUp: FormGroup;
-
   isSignedUp = false;
-  isSignUpFailed = false;
   errorMessage = '';
+  messageSuccess = '';
   private signUpinfo: SignUpInfo;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private route: Router) { }
 
   ngOnInit() {
     this.formSignUp = new FormGroup({
@@ -48,13 +48,20 @@ export class RegisterComponent implements OnInit {
       data => {
         console.log(data);
         this.isSignedUp = true;
-        this.isSignUpFailed = false;
       },
       error => {
         console.log(error);
         this.errorMessage = error.error.message;
-        this.isSignUpFailed = true;
       }
     )
+  }
+
+
+  reloadPage(){
+    window.location.reload();
+  }
+
+  initPage(){
+    this.route.navigateByUrl("/login");
   }
 }

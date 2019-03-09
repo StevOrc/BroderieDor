@@ -33,4 +33,11 @@ export class AdminService{
         headers = headers.append("Content-type", "application/json");
         return this.http.post(ADMIN_URLS.ADMIN_UPDATE_URL, product, {headers:headers});
     }
+
+    public createProduct(token: string, product: Produit): Observable<any>{
+        let headers = new HttpHeaders();
+        headers = headers.append("Authorization", "Bearer " +token);
+        headers = headers.append("Content-type", "application/json");
+        return this.http.post(ADMIN_URLS.ADMIN_CREATE_URL, product, {headers:headers});
+    }
 }

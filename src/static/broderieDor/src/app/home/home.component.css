@@ -151,23 +151,23 @@ main div.offre .card-header{
 }
  /* CUSTOM the color of cards-header*/
 main div.offre .Bronze .card-header{
-    background: brown;
+    background: black;
 }
 
 main div.offre .Argent .card-header{
-    background: silver;
+    background: black;
 }
 
 main div.offre .Or .card-header{
-    background: #DAA520;
+    background: black;
 }
 
 main div.offre .Avant .card-header{
-    background: #DAA520;
+    background: black;
 }
 
 main div.offre .Après .card-header{
-    background: #DAA520;
+    background: black;
 }
 
 /* CUSTOM the color of h5's cards-header*/
@@ -176,53 +176,17 @@ main div.offre .card-header h5{
     color: white;
 }
 
-/*Custom Bronze*/
-#offre .bronze .card-header{
-    background: brown;
-}
-
-#offre .bronze h5{
+main div.offre .btn{
     color: white;
-}
-
-#offre .bronze .btn{
-    background: brown;
-    border: none;
-}
-
-/*Custom Silver*/
-#offre .silver .card-header{
-    background: darkgray;
-}
-
-#offre .silver h5{
-    color: white;
-}
-
-#offre .silver .btn{
-    background: darkgray;
-    border: none;
-}
-
-/*Custom Gold*/
-#offre .gold .card-header{
-    background: #DAA520;
-}
-
-#offre .gold h5{
-    color: white;
-}
-
-#offre .gold .btn{
-    background: #DAA520;
-    border: none;
+    background: black;
+    border: black;
 }
 
 /*JUMBOTRON*/
 
 .jumbotron{
-    background: black;
-    color: #DAA520;
+    background: #DAA520;
+    color: black;
 }
 
 .jumbotron h2{
