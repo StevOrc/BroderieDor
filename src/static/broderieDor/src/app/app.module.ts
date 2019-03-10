@@ -8,10 +8,10 @@ import { AppComponent } from './app.component';
 
 //Component Model
 import { ContentComponent } from './content/content.component';
-import { ProduitComponent } from './produit/produit.component';
+import { ProductComponent } from './product/product.component';
 import { CommandeComponent } from './commande/commande.component';
 
-import { ProduitService } from './produit/produit.service';
+import { ProductService } from './product/product.service';
 //import { ThemeService } from './service/theme.service';
 import { CommandeService } from './commande/commande.service';
 import { HeaderComponent } from './header/header.component';
@@ -25,7 +25,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserspaceComponent } from './userspace/userspace.component';
 import { AdminService } from './service/admin.service';
 import { UserService } from './service/user.service';
-import { ThemeComponent } from './theme/theme.component';
+import { ThemeComponent } from './dashboard-theme/theme.component';
 import { DashboardBasketComponent } from './dashboard-basket/dashboard-basket.component';
 import { DashboardClientComponent } from './dashboard-client/dashboard-client.component';
 import { DashboardCommandeComponent } from './dashboard-commande/dashboard-commande.component';
@@ -35,7 +35,7 @@ import { DashboardProduitComponent } from './dashboard-produit/dashboard-produit
   declarations: [
     AppComponent,
     ContentComponent,
-    ProduitComponent,
+    ProductComponent,
     CommandeComponent,
     HeaderComponent,
     FooterComponent,
@@ -58,7 +58,7 @@ import { DashboardProduitComponent } from './dashboard-produit/dashboard-produit
     HttpClientModule,
   ],
   providers: [
-    ProduitService,
+    ProductService,
     CommandeService,
     DataService,
     AdminService,

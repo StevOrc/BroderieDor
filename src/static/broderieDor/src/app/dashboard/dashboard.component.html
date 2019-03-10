@@ -3,11 +3,6 @@
       <ul>
           <li><a href="#" class="linkNavbas"><i class="fas fa-home"></i> Home</a></li>
           <!-- Loop *ngFor on listThemes to genrate nav menu links depending on theme in Database.theme-->
-          <li><a href="dashboard/produit" class="linkNavbas">Produit</a></li>
-          <li><a href="dashboard/theme" class="linkNavbas">Theme</a></li>
-          <li><a href="dashboard/paniert" class="linkNavbas">Panier</a></li>
-          <li><a href="dashboard/client" class="linkNavbas">Client</a></li>
-          <li><a href="dashboard/commande" class="linkNavbas">Commande</a></li>
           <li><a href="/produit" class="linkNavbas">Boutique d'Or</a></li>
           <li><a href="home#contact" target="_self" class="linkNavbas">Contact</a></li>
       </ul>
@@ -19,6 +14,12 @@
 </h3>
 <p *ngIf="!isLogged" class="messageLoggedOut">Connectez vous pour accéder à votre Dashboard</p>
 
+<nav class="container-fluid" id="gestion">
+  <button class="btn btn-primary" (click)="productView()">Produit</button>
+  <button class="btn btn-primary" (click)="themeView()">Theme</button>
+  <button class="btn btn-primary" (click)="basketView()">Panier</button>
+  <button class="btn btn-primary" (click)="commandeView()">Commande</button>
+  <button class="btn btn-primary" (click)="clientView()">Client</button>
+</nav>
 
-
-<router-outlet></router-outlet>
+<router-outlet *ngIf="isLogged"></router-outlet>

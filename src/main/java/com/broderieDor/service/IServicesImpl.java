@@ -23,7 +23,7 @@ import com.broderieDor.repository.UserRepository;
 
 @Service
 @Transactional
-public class IServicesImplementation implements IServices{
+public class IServicesImpl implements IServices{
 
 	@Autowired
 	ProductRepository productRepo;

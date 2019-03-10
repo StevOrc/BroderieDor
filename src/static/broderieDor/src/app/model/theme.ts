@@ -1,12 +1,13 @@
 
-import { Panier } from './panier';
+import { Basket } from './basket';
 
 export class Theme{
 
     constructor(
         public idTheme?: number,
-        public nom?: string,
-        public paniers?: Panier[]
+        public name?: string,
+        public description?: string,
+        public baskets?: Basket[]
     ){
         
     }

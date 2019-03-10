@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 import { AdminService } from '../service/admin.service';
-import { Produit } from '../model/produit';
+import { Product } from '../model/product';
 import { TokenStorageService } from '../auth/token-storage.service';
 
 @Component({
@@ -14,8 +14,8 @@ export class DashboardProduitComponent implements OnInit {
 
   isLogged = false;
   crudProductForm: FormGroup;
-  produits: Produit[];
-  selectedProduit: Produit;
+  produits: Product[];
+  selectedProduit: Product;
   operation = '';
 
   constructor(private tokenStorage: TokenStorageService, private adminService: AdminService) { }
@@ -29,7 +29,7 @@ export class DashboardProduitComponent implements OnInit {
   }
   
   getAllProducts(token){
-    this.adminService.getAllProduct(token).subscribe(
+    this.adminService.getAllProduct().subscribe(
       data => {this.produits = data; console.log(this.produits)},
       error => {console.log(error)},
       () => {console.log("ALL PRODUCT LOADED for ADMIN ONLY")}
@@ -46,13 +46,13 @@ export class DashboardProduitComponent implements OnInit {
   }
 
   initProduit(){
-    this.selectedProduit = new Produit();
+    this.selectedProduit = new Product();
     this.operation = 'ADD';
   }
 
   updateProduct(){
     console.log(this.selectedProduit);
-    this.adminService.updateProduct(this.tokenStorage.getToken(), this.selectedProduit).subscribe(
+    this.adminService.updateProduct(this.selectedProduit).subscribe(
       data => {console.log(data); this.reloadPage()},
       error => {console.log(error)}
     )
@@ -60,15 +60,14 @@ export class DashboardProduitComponent implements OnInit {
 
   addProduct(){
     this.selectedProduit.urlPhoto = 'photo.png';
-    console.log(this.selectedProduit);
-    this.adminService.createProduct(this.tokenStorage.getToken(), this.selectedProduit).subscribe(
+    this.adminService.createProduct(this.selectedProduit).subscribe(
       data => {console.log(data); this.reloadPage()},
       error => {console.log(error)}
     )
   }
 
   deleteProduct(){
-    this.adminService.deleteProduct(this.tokenStorage.getToken(), this.selectedProduit.idProduct).subscribe(
+    this.adminService.deleteProduct(this.selectedProduit.idProduct).subscribe(
       data => {console.log(data); this.reloadPage()},
       error => {console.log(error)}
     )

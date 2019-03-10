@@ -1,13 +1,13 @@
 
 
-export class LigneCommande{
+export class OrderLine{
 
     constructor(
-        public idLigneCommande?: number,
-        public quantite?: number,
-        public prix?: number,
+        public idOrderLine?: number,
+        public quantity?: number,
+        public price?: number,
         public idCommande?: number,
-        public idProduit?: number
+        public idProduct?: number
     ){
 
     }

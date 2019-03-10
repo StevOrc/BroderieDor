@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ProduitComponent } from './produit/produit.component';
+import { ProductComponent } from './product/product.component';
 import { CommandeComponent } from './commande/commande.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserspaceComponent } from './userspace/userspace.component';
-import { ThemeComponent } from './theme/theme.component';
+import { ThemeComponent } from './dashboard-theme/theme.component';
 import { DashboardBasketComponent } from './dashboard-basket/dashboard-basket.component';
 import { DashboardClientComponent } from './dashboard-client/dashboard-client.component';
 import { DashboardCommandeComponent } from './dashboard-commande/dashboard-commande.component';
@@ -29,7 +29,7 @@ const routes: Routes = [
   },
   {
     path: 'produit', 
-    component: ProduitComponent
+    component: ProductComponent
 },
   {
     path: 'commande',
@@ -41,11 +41,6 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'produit',
-        pathMatch: 'full'
-      },
-      {
-        path: '**',
         redirectTo: 'produit',
         pathMatch: 'full'
       },
@@ -68,6 +63,11 @@ const routes: Routes = [
       {
         path: 'commande',
         component: DashboardCommandeComponent
+      },
+      {
+        path: '**',
+        redirectTo: 'produit',
+        pathMatch: 'full'
       }
     ]
 },

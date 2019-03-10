@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { TokenStorageService } from '../auth/token-storage.service';
+
+
 @Component({
   selector: 'app-dashboard-basket',
   templateUrl: './dashboard-basket.component.html',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardBasketComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
   }

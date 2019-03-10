@@ -1,0 +1,86 @@
+<main *ngIf="isLogged" class="container-fluid">
+  <div class="table-wrapper col-lg-7">
+      <section class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>Gestion des themes</h2>
+                </div>
+                <div class="col-sm-6">
+                    <button class="btn btn-success" (click)="operation = 'ADD'; initTheme()">
+                            Créer
+                    </button>					
+            </div>
+            </div>
+        </section>
+      <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+              <th>id theme</th><th>Nom</th><th>description</th> <th>Action</th>
+            </tr>     
+        </thead>
+        <tbody>
+          <tr *ngFor="let theme of themes">
+            <td> {{theme.idTheme}} </td>
+            <td> {{theme.name}} </td>
+            <td> {{theme.description}} </td>
+            <td class="crudTD">
+                <button class="btn" (click)="selectedTheme = theme; operation = 'EDIT'">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn" (click)="selectedTheme = theme; operation = 'REMOVE'">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </td>
+          </tr>
+            <tr>
+        </tbody>
+      </table>
+  </div>
+  <!-- FORM FOR CRUD PRODUCT -->
+</main>
+<div *ngIf="operation == 'ADD' || operation == 'EDIT'" class="customForm col-lg-4">
+    <form [formGroup]="crudFormTheme">
+      <strong>
+        <p class="titleForm"> {{ operation == 'ADD' ? 'Ajouter them' :
+             operation == 'EDIT' ? 'Modifier theme' : ''
+          }} 
+        </p>
+    </strong>
+      <p *ngIf="operation == 'EDIT'">Id produit : {{selectedTheme.idTheme}} </p>
+      <div class="input-group">
+        <label for="">Nom</label>
+        <input type="text" class="form-control" formControlName="name"
+        [(ngModel)]="selectedTheme.name">
+      </div>
+      <div class="input-group">
+          <label for="">Description</label>
+          <textarea type="text" class="form-control" rows="6" maxlength="255" formControlName="description"
+          [(ngModel)]="selectedTheme.description"></textarea>
+      </div>
+      <div class="input-group">
+          <button [className]="operation == 'ADD' ? 'btn btn-primary' : 'btn btn-success'"
+                  [disabled] ="crudFormTheme.invalid"
+                  (click)="operation == 'ADD' ? addTheme() : updateTheme()">
+              Valider
+          </button>
+    </div>
+    </form>
+  </div>
+
+<div *ngIf="operation == 'REMOVE'" class="customForm col-lg-4" >
+    <section>
+      <strong>
+        <p class="titleForm"> Supprimer Produit
+        </p>
+    </strong>
+      <p *ngIf="operation == 'REMOVE'">Id produit : {{selectedTheme.idTheme}} </p>
+
+      <p> Nom produit : {{selectedTheme.name}} </p>
+
+      <p> Description : {{selectedTheme.description}} </p>
+
+      <p> Souhaitez-vous supprimer le produit ?</p>
+
+      <button class="btn btn-danger" (click)="deleteTheme()">Supprimer</button>
+    </section>
+</div>

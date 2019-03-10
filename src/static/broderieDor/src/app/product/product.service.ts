@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { API_URLS } from '../config/url.config';
 
 @Injectable()
-export class ProduitService{
+export class ProductService{
 
 
     constructor(private http: HttpClient){

@@ -31,10 +31,9 @@
             <div *ngFor="let theme of listThemes; let i = index" class="conatiner custom">
                 <div class="container-fluid jumbotron jumbotron-fluid" [attr.id]=" 'jum' + theme.nom">
                     <h2 class="dislay-4 container"> {{theme.name}} </h2>
-                    <p class="container">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam sed necessitatibus rem dolorum temporibus ab
-                        labore ipsa? Maxime, corrupti officiis sapiente at, ea magni ipsum modi eos delectus quam quidem.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero soluta ad, neque nostrum animi ipsa harum,
-                        eligendi obcaecati explicabo consectetur deleniti, deserunt temporibus totam quas ipsam esse amet eos non.</p>
+                    <p class="container">
+                        {{theme.description}}
+                    </p>
                 </div>
                 <div class="container-fluid">
                     <div class="offre">

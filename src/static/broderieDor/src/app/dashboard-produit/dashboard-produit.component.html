@@ -39,7 +39,7 @@
   </div>
 
   <!-- FORM FOR CRUD PRODUCT -->
-  <div *ngIf="operation == 'ADD' || operation == 'EDIT'" class="col-lg-4" >
+  <div *ngIf="operation == 'ADD' || operation == 'EDIT'" class="customForm col-lg-4">
   <form [formGroup]="crudProductForm">
     <strong>
       <p class="titleForm"> {{ operation == 'ADD' ? 'Ajouter produit' :
@@ -64,7 +64,7 @@
           [(ngModel)]="selectedProduit.stock">
     </div>
     <div class="input-group">
-        <button class="btn btn-success"
+        <button [className]="operation == 'ADD' ? 'btn btn-primary' : 'btn btn-success'"
                 [disabled] ="crudProductForm.invalid"
                 (click)="operation == 'ADD' ? addProduct() : updateProduct()">
             Valider
@@ -73,7 +73,7 @@
   </form>
 </div>
 
-<div *ngIf="operation == 'REMOVE'" class="col-lg-4" >
+<div *ngIf="operation == 'REMOVE'" class="customForm col-lg-4" >
     <section>
       <strong>
         <p class="titleForm"> Supprimer Produit

@@ -1,3 +1,8 @@
+h2{
+    margin-top: 100px;
+    text-align: center;
+}
+
 h3{
     margin-top: 100px;
     text-align: center;  
@@ -122,15 +127,6 @@ table.table .avatar {
     color: red;
 }
 /*Form for CRUD*/
-form{
-    margin-top: 30px;
-    margin-left: 5px;
-    height: 23%;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border: 10px solid black;
-}
 
 .input-group{
     display: flex;
@@ -152,6 +148,11 @@ form{
 }
 
 .customForm{
-    position: fixed;
-    right: 50px;
+    margin-top: 30px;
+    margin-left: 5px;
+    height: 23%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 10px solid black;
 }

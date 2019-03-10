@@ -1,14 +1,14 @@
 
-import { Produit } from './produit';
+import { Product } from './product';
 
-export class Panier{
+export class Basket{
 
     constructor(
         public idPannier?: number,
         public nom?: string,
         public prix?: number,
         public idTheme?: number,
-        public listProduits? : Produit[],
+        public listProduits? : Product[],
     ){
 
     }

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.broderieDor.model.product.Product;
+import com.broderieDor.model.theme.Theme;
 import com.broderieDor.service.IAdminService;
 import com.broderieDor.service.IServices;
 
@@ -31,6 +32,7 @@ public class AdminController {
 	@Autowired
 	IAdminService adminService;
 	
+	// Product management
 	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/product")
 	public ResponseEntity<?> allProduct(){
@@ -56,6 +58,36 @@ public class AdminController {
 	@DeleteMapping("/product/{id}")
 	public ResponseEntity<?> deleteProduct(@PathVariable long  id){
 		this.adminService.removeProduct(id);
+		return new ResponseEntity<Void>(HttpStatus.OK);
+	}
+	
+	//Theme Management
+	@PreAuthorize("hasRole('ADMIN')")
+	@GetMapping("/theme")
+	public ResponseEntity<?> getAllTheme(){
+		
+		return new ResponseEntity<List<Theme>>(this.services.allThemes(), HttpStatus.OK);
+	}
+	
+	@PreAuthorize("hasRole('ADMIN')")
+	@PostMapping("/theme/create")
+	public ResponseEntity<?> createTheme(@RequestBody Theme theme){
+		
+		return new ResponseEntity<Theme>(this.adminService.createTheme(theme), HttpStatus.OK);
+	}
+	
+	@PreAuthorize("hasRole('ADMIN')")
+	@PutMapping("/theme/update")
+	public ResponseEntity<?> updateTheme(@RequestBody Theme theme){
+		
+		return new ResponseEntity<Theme>(this.adminService.updateTheme(theme), HttpStatus.OK);
+	}
+	
+	@PreAuthorize("hasRole('ADMIN')")
+	@DeleteMapping("/theme/{id}")
+	public ResponseEntity<?> deleteTheme(@PathVariable long id){
+		
+		this.adminService.deleteTheme(id);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 }
