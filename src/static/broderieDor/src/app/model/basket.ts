@@ -1,15 +1,23 @@
 
-import { Product } from './product';
+import { BasketLine } from './basketLine';
 
 export class Basket{
 
-    constructor(
-        public idPannier?: number,
-        public nom?: string,
-        public prix?: number,
-        public idTheme?: number,
-        public listProduits? : Product[],
-    ){
+    idBasket?: number;
+    name?: string;
+    price?: number;
+    theme?: string;
+    basketLines? : BasketLine[];
 
+    constructor(
+        name?: string,
+        price?: number,
+        theme?: string,
+        basketLines? : BasketLine[]
+    ){
+        this.name = name;
+        this.price = price;
+        this.theme = theme;
+        this.basketLines = basketLines;
     }
 }

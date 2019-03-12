@@ -50,7 +50,7 @@
 #navbas nav ul a{
     display: block;
     text-decoration: none;
-    color : black;
+    color : #191919;
     line-height: 50px;
     transition: 0.5s;
     font-size: 1.1em;
@@ -102,7 +102,7 @@ main #descriptif p{
 }
 
 main #hrhaut{
-    background: black;
+    background: #191919;
     width: 50%;
     margin: auto;
     margin-top: 25px;
@@ -110,7 +110,7 @@ main #hrhaut{
 }
 
 main #hrbas{
-    background: black;
+    background: #191919;
     width: 50%;
     margin: auto;
     margin-bottom: 10px;
@@ -151,23 +151,23 @@ main div.offre .card-header{
 }
  /* CUSTOM the color of cards-header*/
 main div.offre .Bronze .card-header{
-    background: black;
+    background: #DAA520;
 }
 
 main div.offre .Argent .card-header{
-    background: black;
+    background: #DAA520;
 }
 
 main div.offre .Or .card-header{
-    background: black;
+    background: #DAA520;
 }
 
 main div.offre .Avant .card-header{
-    background: black;
+    background: #DAA520;
 }
 
 main div.offre .Après .card-header{
-    background: black;
+    background: #DAA520;
 }
 
 /* CUSTOM the color of h5's cards-header*/
@@ -178,15 +178,15 @@ main div.offre .card-header h5{
 
 main div.offre .btn{
     color: white;
-    background: black;
-    border: black;
+    background: #DAA520;
+    border: #DAA520;
 }
 
 /*JUMBOTRON*/
 
 .jumbotron{
-    background: #DAA520;
-    color: black;
+    background: #191919;
+    color: white;
 }
 
 .jumbotron h2{

@@ -6,7 +6,7 @@ import { TokenStorageService } from '../auth/token-storage.service';
 import { ADMIN_URLS } from '../config/CRUD.admin.url';
 import { Product } from '../model/product';
 import { Theme } from '../model/theme';
-
+import { Basket } from '../model/basket';
 
 @Injectable()
 export class AdminService{
@@ -51,6 +51,23 @@ export class AdminService{
     }
 
     public deleteTheme(id): Observable<any>{
+        return this.http.delete(ADMIN_URLS.ADMIN_THEME_URL+'/'+`${id}`, {headers:this.header})
+    }
+
+    // Theme CRUD Service
+    public getAllBasket(): Observable<any>{
+        return this.http.get(ADMIN_URLS.ADMIN_BASKET_URL, {headers:this.header});
+    }
+
+    public createBasket(basket: Basket): Observable<any>{
+        return this.http.post(ADMIN_URLS.ADMIN_THEME_CREATE_URL, basket , {headers:this.header})
+    }
+
+    public updateBasket(basket: Basket): Observable<any>{
+        return this.http.put(ADMIN_URLS.ADMIN_BASKET_UPDATE_URL, basket , {headers:this.header})
+    }
+
+    public deleteBasket(id): Observable<any>{
         return this.http.delete(ADMIN_URLS.ADMIN_THEME_URL+'/'+`${id}`, {headers:this.header})
     }
 }

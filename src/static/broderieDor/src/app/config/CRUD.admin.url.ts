@@ -8,5 +8,9 @@ export const ADMIN_URLS = {
     //Theme
     ADMIN_THEME_URL: 'http://localhost:8080/api/admin/theme',
     ADMIN_THEME_CREATE_URL: 'http://localhost:8080/api/admin/theme/create',
-    ADMIN_THEME_UPDATE_URL: 'http://localhost:8080/api/admin/theme/update'
+    ADMIN_THEME_UPDATE_URL: 'http://localhost:8080/api/admin/theme/update',
+    //Basket
+    ADMIN_BASKET_URL: 'http://localhost:8080/api/admin/basket',
+    ADMIN_BASKET_CREATE_URL: 'http://localhost:8080/api/admin/basket/create',
+    ADMIN_BASKET_UPDATE_URL: 'http://localhost:8080/api/admin/basket/update'
 }

@@ -17,7 +17,11 @@ import org.hibernate.validator.constraints.Length;
 import com.broderieDor.model.basketLine.BasketLine;
 import com.broderieDor.model.commande.OrderLine;
 import com.broderieDor.model.theme.Theme;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 public class Basket {
@@ -36,7 +40,6 @@ public class Basket {
 	
 	@ManyToOne
 	@JoinColumn(name="idTheme")
-	@JsonIgnore
 	private Theme theme;
 	
 	@OneToMany(mappedBy="basket")
@@ -122,7 +125,6 @@ public class Basket {
 	public void setBasketLine(List<BasketLine> basketLines) {
 		this.basketLines = basketLines;
 	}
-	
-	
+
 	
 }

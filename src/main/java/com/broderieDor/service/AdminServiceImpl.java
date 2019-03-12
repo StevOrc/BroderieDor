@@ -1,10 +1,14 @@
 package com.broderieDor.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.broderieDor.model.basket.Basket;
 import com.broderieDor.model.product.Product;
 import com.broderieDor.model.theme.Theme;
+import com.broderieDor.repository.BasketRepository;
 import com.broderieDor.repository.ProductRepository;
 import com.broderieDor.repository.ThemeRepository;
 
@@ -16,6 +20,9 @@ public class AdminServiceImpl implements IAdminService{
 	
 	@Autowired
 	ThemeRepository themeRepo;
+	
+	@Autowired
+	BasketRepository basketRepo;
 
 	@Override
 	public Product addProduct(Product product) {
@@ -50,6 +57,36 @@ public class AdminServiceImpl implements IAdminService{
 	@Override
 	public void deleteTheme(long id) {
 		this.themeRepo.deleteById(id);
+	}
+	
+	@Override
+	public Theme findByName(String name) {
+		
+		return this.themeRepo.findByName(name);
+	}
+
+	//BASKET MANAGEMENT
+	@Override
+	public List<Basket> readAllBasket() {
+		
+		return this.basketRepo.findAll();
+	}
+
+	@Override
+	public Basket createBasket(Basket basket) {
+		
+		return this.basketRepo.save(basket);
+	}
+
+	@Override
+	public Basket updateBasket(Basket basket) {
+		
+		return this.basketRepo.save(basket);
+	}
+
+	@Override
+	public void deletBasket(long id) {
+		this.basketRepo.deleteById(id);
 	}
 	
 }

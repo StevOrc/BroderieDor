@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.broderieDor.dto.BasketDto;
+import com.broderieDor.model.basket.Basket;
 import com.broderieDor.model.product.Product;
 import com.broderieDor.model.theme.Theme;
 import com.broderieDor.service.IAdminService;
@@ -61,7 +63,7 @@ public class AdminController {
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 	
-	//Theme Management
+	//THEME MANAGEMENT
 	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/theme")
 	public ResponseEntity<?> getAllTheme(){
@@ -90,4 +92,43 @@ public class AdminController {
 		this.adminService.deleteTheme(id);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
+	
+	//BASKET MANAGEMENT
+	@PreAuthorize("hasRole('ADMIN')")
+	@GetMapping("/basket")
+	public ResponseEntity<?> getAllBasket(){
+		
+		return new ResponseEntity<List<Basket>>( this.adminService.readAllBasket(), HttpStatus.OK);
+	}
+	
+	//@PreAuthorize("hasRole('ADMIN')")
+	@PostMapping("/basket/create")
+	public ResponseEntity<?> createBasket(@RequestBody BasketDto basketDto){
+		if(basketDto != null)
+			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+		else {
+			Basket basket = new Basket();
+			basket.setName(basketDto.getName());
+			basket.setTheme(this.adminService.findByName(basketDto.getTheme()));
+			basket.setPrice(basketDto.getPrice());
+		}
+
+		return null;
+	}
+	
+	@PreAuthorize("hasRole('ADMIN')")
+	@PutMapping("/basket/update")
+	public ResponseEntity<?> updateBasket(@RequestBody Basket basket){
+		
+		return new ResponseEntity<Basket>(this.adminService.updateBasket(basket), HttpStatus.OK);
+	}
+	
+	@PreAuthorize("hasRole('ADMIN')")
+	@DeleteMapping("/basket/{id}")
+	public ResponseEntity<?> deleteBasket(@PathVariable long id){
+		
+		this.adminService.deletBasket(id);
+		return new ResponseEntity<Void>(HttpStatus.OK);
+	}
+	
 }

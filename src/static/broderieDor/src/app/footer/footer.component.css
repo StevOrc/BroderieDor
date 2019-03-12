@@ -2,7 +2,7 @@ footer{
     display: flex;
     justify-content: space-around;
     width: 100%;
-    background: black;
+    background: #191919;
 }
 
 footer i{
