@@ -29,7 +29,7 @@ public class Basket {
 	@Id
 	@NotNull
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idBasket;
+	private long idBasket;
 	
 	@NotBlank
 	@Length(max=50)
@@ -58,7 +58,6 @@ public class Basket {
 	
 	public Basket(@NotBlank @Length(max = 50) String name, @NotNull float price, Theme theme, List<OrderLine> orderLines,
 			List<BasketLine> basketLines) {
-		super();
 		this.name = name;
 		this.price = price;
 		this.theme = theme;
@@ -67,12 +66,12 @@ public class Basket {
 	}
 
 	//GETTERS - SETTERS
-	public int getIdBasket() {
+	public long getIdBasket() {
 		return idBasket;
 	}
 
 
-	public void setIdBasket(int idBasket) {
+	public void setIdBasket(long idBasket) {
 		this.idBasket = idBasket;
 	}
 

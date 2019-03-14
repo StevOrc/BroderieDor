@@ -9,5 +9,8 @@ export class UserService{
 
     }
 
+    public getUser(id): Observable<any>{
+        return this.http.get("", {});
+    }
 
 }

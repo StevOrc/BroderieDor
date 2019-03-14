@@ -63,6 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	                .antMatchers("/api/auth/**").permitAll() // authorisation d'accéder à toute les ressources de "api/auth/**"
 	                .antMatchers("/api/common/**").permitAll() // accès autorisé pour les ressources /api/**
 	                .antMatchers("/api/admin/basket/create").permitAll()
+	                .antMatchers("/api/admin/basket/update").permitAll()
 	                .anyRequest().authenticated() // Pour toute les autres ressources, il faut être authentifié
 	                .and()
 	                //Si il y erreur lors de l'authenfication => une erreur est envoyé dans la response 401

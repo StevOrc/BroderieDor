@@ -116,9 +116,30 @@
           <div class="input-group">
               <button [className]="operation == 'ADD' ? 'btn btn-primary' : 'btn btn-success'"
                       [disabled] ="crudBasketForm.invalid"
-                      (click)="operation == 'ADD' ? createBasket() : updateBasket()">
+                      (click)="operation == 'ADD' ? createBasket() : updateBasket(selectedBasket.idBasket, selectedBasket.basketLines)">
                   Valider
               </button>
         </div>
         </form>
+</div>
+
+<div *ngIf="operation == 'REMOVE'" class="customForm col-lg-4">
+    <div id="deleteBasket">
+        <section>
+        <strong>
+            <p class="titleForm"> Supprimer Produit
+            </p>
+            <button class="btn customBtnLeave" (click)="initOperation()" id="quitter"><i class="fas fa-times"></i></button>
+        </strong>
+        <p *ngIf="operation == 'REMOVE'">Id produit : {{selectedBasket.idBasket}} </p>
+
+        <p> Nom produit : {{selectedBasket.name}} </p>
+
+        <p> Prix : {{selectedBasket.price}} </p>
+
+        <p> Souhaitez-vous supprimer le produit ?</p>
+
+        <button class="btn btn-danger" (click)="deleteBasket()">Supprimer</button>
+        </section>
+    </div>
 </div>

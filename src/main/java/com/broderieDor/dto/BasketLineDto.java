@@ -1,20 +1,23 @@
 package com.broderieDor.dto;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class BasketLineDto {
 	
-    @NotBlank
+	private long idBasketLine;
+	
+    @NotNull
 	private int quantity;
 	
-    @NotBlank
+    @NotNull
 	private long idProduct;
 
     public BasketLineDto() {
     	
     }
     
-	public BasketLineDto(@NotBlank int quantity, @NotBlank long idProduct) {
+	public BasketLineDto(@NotNull int quantity, @NotNull long idProduct) {
 		this.quantity = quantity;
 		this.idProduct = idProduct;
 	}
@@ -33,6 +36,14 @@ public class BasketLineDto {
 
 	public void setIdProduct(long idProduct) {
 		this.idProduct = idProduct;
+	}
+
+	public long getIdBasketLine() {
+		return idBasketLine;
+	}
+
+	public void setIdBasketLine(long idBasketLine) {
+		this.idBasketLine = idBasketLine;
 	}
 	
 	

@@ -73,6 +73,10 @@ export class DashboardProduitComponent implements OnInit {
     )
   }
 
+  initOperation(){
+    this.operation = '';
+  }
+  
   reloadPage(){
     window.location.reload();
   }

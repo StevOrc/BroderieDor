@@ -43,14 +43,15 @@ public class BasketLine {
 	}
 
 	// GETTERS - SETTERS
+
 	public long getIdBasketLine() {
 		return idBasketLine;
 	}
 
-	public void setIdBasketLine(int idBasketLine) {
+	public void setIdBasketLine(long idBasketLine) {
 		this.idBasketLine = idBasketLine;
 	}
-
+	
 	public Product getProduct() {
 		return product;
 	}

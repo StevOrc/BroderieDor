@@ -47,6 +47,7 @@ export class DashboardBasketComponent implements OnInit {
     return this.fb.group({
       quantity: [],
       idProduct: [],
+      idBasketLine: []
     })
   }
 
@@ -78,7 +79,8 @@ export class DashboardBasketComponent implements OnInit {
       let tempForm = new FormControl(this.selectedBasket);
       let form = new FormGroup({
         quantity: new FormControl(tempForm.value.basketLines[i].quantity),
-        idProduct: new FormControl(tempForm.value.basketLines[i].product.idProduct)
+        idProduct: new FormControl(tempForm.value.basketLines[i].product.idProduct),
+        idBasketLine: new FormControl(tempForm.value.basketLines[i].idBasketLine)
       })
       this.addBasketLinesArray(form);
     }
@@ -108,21 +110,35 @@ export class DashboardBasketComponent implements OnInit {
 
   createBasket(){
     this.selectedBasket.basketLines = this.crudBasketForm.controls.basketLines.value;
-    console.log(this.crudBasketForm);
-    console.log(this.selectedBasket);
+    this.adminService.createBasket(this.selectedBasket).subscribe(
+      data => {console.log(data); this.reloadPage()},
+      error => {console.log(error)}
+    )
   }
 
-  updateBasket(){
+  updateBasket(idBasket, item){
+    console.log(item);
+    console.log(idBasket);
     console.log(this.crudBasketForm);
     let basketTemp: Basket = new Basket(
+      idBasket,
       this.crudBasketForm.controls.name.value,
       this.crudBasketForm.value.price,
-      this.crudBasketForm.controls.theme.value.name,
+      this.crudBasketForm.value.theme,
       this.crudBasketForm.value.basketLines
     );
+    console.log(basketTemp);
+    this.adminService.updateBasket(basketTemp).subscribe(
+      data => {console.log(data); this.reloadPage()},
+      error => {console.log(error)}
+    )
   }
 
   deleteBasket(){
+    this.adminService.deleteBasket(this.selectedBasket.idBasket).subscribe(
+      data => {console.log(data); this.reloadPage()},
+      error => {console.log(error)}
+    )
   }
 
   initOperation(){

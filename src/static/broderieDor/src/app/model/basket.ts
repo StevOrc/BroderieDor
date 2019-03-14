@@ -10,11 +10,13 @@ export class Basket{
     basketLines? : BasketLine[];
 
     constructor(
+        idBasket?: number,
         name?: string,
         price?: number,
         theme?: string,
         basketLines? : BasketLine[]
     ){
+        this.idBasket = idBasket;
         this.name = name;
         this.price = price;
         this.theme = theme;

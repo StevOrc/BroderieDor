@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { API_URLS } from '../config/url.config';
+import { API_URLS } from '../config.url/url.config';
 
 @Injectable()
 export class ProductService{

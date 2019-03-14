@@ -7,6 +7,8 @@ import javax.validation.constraints.NotBlank;
 
 public class BasketDto {
 	
+	private long IdBasket;
+	
     @NotBlank
 	private String name;
 	
@@ -32,7 +34,18 @@ public class BasketDto {
 		this.basketLines = basketLines;
 	}
 
+	//GETTERS - SETTERS
+	public long getIdBasket() {
+		return IdBasket;
+	}
 
+	public void setIdBasket(long idBasket) {
+		IdBasket = idBasket;
+	}
+
+	public List<BasketLineDto> getBasketLines() {
+		return basketLines;
+	}
 
 	public String getName() {
 		return name;

@@ -104,26 +104,24 @@ public class AdminController {
 	//@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/basket/create")
 	public ResponseEntity<?> createBasket(@RequestBody BasketDto basketDto){
-		if(basketDto != null)
-			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+		if(basketDto == null)
+			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		else {
-			Basket basket = new Basket();
-			basket.setName(basketDto.getName());
-			basket.setTheme(this.adminService.findByName(basketDto.getTheme()));
-			basket.setPrice(basketDto.getPrice());
+			return new ResponseEntity<Basket>(this.adminService.convertBasketDtoToBasket(basketDto), HttpStatus.OK);
 		}
-
-		return null;
 	}
 	
 	@PreAuthorize("hasRole('ADMIN')")
 	@PutMapping("/basket/update")
-	public ResponseEntity<?> updateBasket(@RequestBody Basket basket){
-		
-		return new ResponseEntity<Basket>(this.adminService.updateBasket(basket), HttpStatus.OK);
+	public ResponseEntity<?> updateBasket(@RequestBody BasketDto basketDto){
+		if(basketDto == null)
+			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+		else {
+			return new ResponseEntity<Basket>(this.adminService.convertBasketDtoToBasket(basketDto), HttpStatus.OK);
+		}
 	}
 	
-	@PreAuthorize("hasRole('ADMIN')")
+//	@PreAuthorize("hasRole('ADMIN')")
 	@DeleteMapping("/basket/{id}")
 	public ResponseEntity<?> deleteBasket(@PathVariable long id){
 		

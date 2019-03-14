@@ -1,5 +1,5 @@
 <main *ngIf="isLogged" class="container-fluid">
-  <div class="table-wrapper col-lg-7">
+  <div class="table-wrapper col-lg-10">
       <section class="table-title">
             <div class="row">
                 <div class="col-sm-6">
@@ -40,13 +40,14 @@
 
   <!-- FORM FOR CRUD PRODUCT -->
   <div *ngIf="operation == 'ADD' || operation == 'EDIT'" class="customForm col-lg-4">
-  <form [formGroup]="crudProductForm">
+  <form [formGroup]="crudProductForm" class="formCustom">
     <strong>
       <p class="titleForm"> {{ operation == 'ADD' ? 'Ajouter produit' :
            operation == 'EDIT' ? 'Modifier produit' : ''
         }} 
       </p>
-  </strong>
+      <button class="btn customBtnLeave" (click)="initOperation()" id="quitter"><i class="fas fa-times"></i></button>
+    </strong>
     <p *ngIf="operation == 'EDIT'">Id produit : {{selectedProduit.idProduct}} </p>
     <div class="input-group">
       <label for="">Nom</label>
@@ -73,11 +74,12 @@
   </form>
 </div>
 
-<div *ngIf="operation == 'REMOVE'" class="customForm col-lg-4" >
-    <section>
+<div *ngIf="operation == 'REMOVE'" class="customForm col-lg-4">
+    <section id="deleteProduct">
       <strong>
         <p class="titleForm"> Supprimer Produit
         </p>
+        <button class="btn customBtnLeave" (click)="initOperation()" id="quitter"><i class="fas fa-times"></i></button>
     </strong>
       <p *ngIf="operation == 'REMOVE'">Id produit : {{selectedProduit.idProduct}} </p>
 

@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.broderieDor.converter.BasketConverter;
+import com.broderieDor.dto.BasketDto;
 import com.broderieDor.model.basket.Basket;
 import com.broderieDor.model.product.Product;
 import com.broderieDor.model.theme.Theme;
@@ -16,6 +18,9 @@ import com.broderieDor.repository.ThemeRepository;
 public class AdminServiceImpl implements IAdminService{
 	
 	@Autowired
+	BasketConverter basketConverter;
+	
+	@Autowired
 	ProductRepository productRepo;
 	
 	@Autowired
@@ -24,6 +29,7 @@ public class AdminServiceImpl implements IAdminService{
 	@Autowired
 	BasketRepository basketRepo;
 
+	//PRODUCT MANAGEMENT
 	@Override
 	public Product addProduct(Product product) {
 		
@@ -39,6 +45,12 @@ public class AdminServiceImpl implements IAdminService{
 	@Override
 	public void removeProduct(long id) {
 		this.productRepo.deleteById(id);
+	}
+	
+	@Override
+	public Product findProductById(long id) {
+	
+		return this.productRepo.findById(id).get();
 	}
 
 	//Theme Management
@@ -60,7 +72,13 @@ public class AdminServiceImpl implements IAdminService{
 	}
 	
 	@Override
-	public Theme findByName(String name) {
+	public Theme findThemeById(long id) {
+		
+		return this.themeRepo.findById(id).get();
+	}
+	
+	@Override
+	public Theme findThemeByName(String name) {
 		
 		return this.themeRepo.findByName(name);
 	}
@@ -89,4 +107,15 @@ public class AdminServiceImpl implements IAdminService{
 		this.basketRepo.deleteById(id);
 	}
 	
+	@Override
+	public Basket findBasketById(long id) {
+		
+		return this.basketRepo.findById(id).get();
+	}
+	
+	//ConvertetDto
+	public Basket convertBasketDtoToBasket(BasketDto basketDto) {
+		
+		 return this.basketConverter.convert(basketDto);
+	}
 }
