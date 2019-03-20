@@ -28,4 +28,8 @@ export class ProductComponent implements OnInit {
     )
   }
 
+  test(){
+    console.log("aaaaaaaa");
+  }
+
 }

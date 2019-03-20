@@ -54,6 +54,7 @@ public class User {
     @Size(min=5, max=150)
     private String password;
     
+    private boolean valid;
 	
 	  @ManyToMany(fetch = FetchType.LAZY)
 	  @JoinTable(name = "user_roles", 
@@ -142,6 +143,14 @@ public class User {
 
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+
+	public boolean isValid() {
+		return valid;
+	}
+
+	public void setValid(boolean valid) {
+		this.valid = valid;
 	}
 	 
 	
