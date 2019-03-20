@@ -1,7 +1,6 @@
 package com.broderieDor.model.user;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -13,22 +12,18 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Length;
 
-import com.broderieDor.model.commande.Commande;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonIgnore
 	private long idUser;
 	
 	@NotBlank
@@ -59,10 +54,6 @@ public class User {
     @Size(min=5, max=150)
     private String password;
     
-	
-	@OneToMany(mappedBy="client")
-	@JsonIgnore
-	private List<Commande> commandes;
 	
 	  @ManyToMany(fetch = FetchType.LAZY)
 	  @JoinTable(name = "user_roles", 
@@ -143,14 +134,6 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public List<Commande> getCommandes() {
-		return commandes;
-	}
-
-	public void setCommandes(List<Commande> commandes) {
-		this.commandes = commandes;
 	}
 
 	public Set<Role> getRoles() {

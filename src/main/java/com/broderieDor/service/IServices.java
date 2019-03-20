@@ -3,8 +3,6 @@ package com.broderieDor.service;
 import java.util.List;
 
 import com.broderieDor.model.basket.Basket;
-import com.broderieDor.model.commande.Commande;
-import com.broderieDor.model.commande.OrderLine;
 import com.broderieDor.model.product.Product;
 import com.broderieDor.model.theme.Theme;
 import com.broderieDor.model.user.User;
@@ -23,7 +21,5 @@ public interface IServices {
 	public long themeSize();
 	
 	public List<Basket> allPanniers();
-	public List<Commande> allCommandes();
 	public List<User> allClients();
-	public List<OrderLine> allLigneCommandes();
 }

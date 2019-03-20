@@ -15,13 +15,8 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
 import com.broderieDor.model.basketLine.BasketLine;
-import com.broderieDor.model.commande.OrderLine;
 import com.broderieDor.model.theme.Theme;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 
 @Entity
 public class Basket {
@@ -41,10 +36,7 @@ public class Basket {
 	@ManyToOne
 	@JoinColumn(name="idTheme")
 	private Theme theme;
-	
-	@OneToMany(mappedBy="basket")
-	@JsonIgnore
-	private List<OrderLine> orderLines;
+
 	
 	@OneToMany(mappedBy="basket")
 	private List<BasketLine> basketLines;
@@ -56,12 +48,11 @@ public class Basket {
 	}
 
 	
-	public Basket(@NotBlank @Length(max = 50) String name, @NotNull float price, Theme theme, List<OrderLine> orderLines,
+	public Basket(@NotBlank @Length(max = 50) String name, @NotNull float price, Theme theme,
 			List<BasketLine> basketLines) {
 		this.name = name;
 		this.price = price;
 		this.theme = theme;
-		this.orderLines = orderLines;
 		this.basketLines = basketLines;
 	}
 
@@ -104,17 +95,6 @@ public class Basket {
 	public void setTheme(Theme theme) {
 		this.theme = theme;
 	}
-
-	
-	public List<OrderLine> getOrderLines() {
-		return orderLines;
-	}
-
-
-	public void setOrderLine(List<OrderLine> orderLines) {
-		this.orderLines = orderLines;
-	}
-
 
 	public List<BasketLine> getBasketLines() {
 		return basketLines;

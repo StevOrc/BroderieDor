@@ -1,5 +1,7 @@
 package com.broderieDor.security;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +15,9 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.broderieDor.security.jwt.JwtAuthEntryPoint;
 import com.broderieDor.security.jwt.JwtAuthTokenFilter;
@@ -62,13 +67,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	                authorizeRequests()
 	                .antMatchers("/api/auth/**").permitAll() // authorisation d'accéder à toute les ressources de "api/auth/**"
 	                .antMatchers("/api/common/**").permitAll() // accès autorisé pour les ressources /api/**
-	                .antMatchers("/api/admin/basket/create").permitAll()
-	                .antMatchers("/api/admin/basket/update").permitAll()
+	                .antMatchers("/api/user/getuser/**").permitAll()
+	                .antMatchers("/api/user/**").permitAll()
 	                .anyRequest().authenticated() // Pour toute les autres ressources, il faut être authentifié
 	                .and()
 	                //Si il y erreur lors de l'authenfication => une erreur est envoyé dans la response 401
 	                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-	                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+	                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS); // travail sans session
 	        //Ajout de notre filtre personalisé
 	        http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 	    }

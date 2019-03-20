@@ -2,7 +2,6 @@
 import { Commande } from '../model/commande';
 
 export class User{
-
     idUser: number;
     lastName: string;
     firstName: string;

@@ -12,7 +12,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
-//Si une erreur se produit lors de l'authentification (maivais user, password...) => dans la response de type HttpServletResponse, l'erreur est envoyée
+//Si une erreur se produit lors de l'authentification (mauvais user, password...) => dans la response de type HttpServletResponse, l'erreur est envoyée
 @Component
 public class JwtAuthEntryPoint implements AuthenticationEntryPoint{
 	

@@ -15,7 +15,6 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
 import com.broderieDor.model.basketLine.BasketLine;
-import com.broderieDor.model.commande.OrderLine;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -41,10 +40,6 @@ public class Product {
 	@Length(max = 100)
 	private String urlPhoto;
 	
-	
-	@OneToMany(mappedBy="product")
-	@JsonIgnore
-	private List<OrderLine> orderLines;
 	
 	@OneToMany(mappedBy="product")
 	@JsonIgnore
@@ -105,13 +100,6 @@ public class Product {
 		this.urlPhoto = urlPhoto;
 	}
 
-	public List<OrderLine> getOrderLines() {
-		return orderLines;
-	}
-
-	public void setOrderLines(List<OrderLine> orderLines) {
-		this.orderLines = orderLines;
-	}
 
 	public List<BasketLine> getBasketLines() {
 		return basketLines;

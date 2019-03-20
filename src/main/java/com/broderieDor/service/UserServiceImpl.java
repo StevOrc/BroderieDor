@@ -1,10 +1,10 @@
 package com.broderieDor.service;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.broderieDor.converter.UserConverter;
+import com.broderieDor.dto.UserDto;
 import com.broderieDor.model.user.User;
 import com.broderieDor.repository.UserRepository;
 
@@ -14,10 +14,13 @@ public class UserServiceImpl implements IUserService{
 	@Autowired
 	UserRepository userRepo;
 	
+	@Autowired
+	UserConverter userConverter;
+	
 	@Override
-	public Optional<User> getUserByUsername(String username) {
+	public User getUserByUsername(String username) {
 		
-		return this.userRepo.findByUsername(username);
+		return this.userRepo.findByUsername(username).get();
 	}
 
 	@Override
@@ -29,6 +32,13 @@ public class UserServiceImpl implements IUserService{
 	@Override
 	public void deleteAccount(long id) {
 		this.userRepo.deleteById(id);
+	}
+
+	
+	@Override
+	public User convertUserDtoToUser(UserDto userDto) {
+		
+		return this.userConverter.convert(userDto);
 	}
 
 }

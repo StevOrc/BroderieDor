@@ -8,13 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.broderieDor.model.basket.Basket;
-import com.broderieDor.model.commande.Commande;
-import com.broderieDor.model.commande.OrderLine;
 import com.broderieDor.model.product.Product;
 import com.broderieDor.model.theme.Theme;
 import com.broderieDor.model.user.User;
-import com.broderieDor.repository.CommandeRepository;
-import com.broderieDor.repository.OrderLineRepository;
 import com.broderieDor.repository.BasketRepository;
 import com.broderieDor.repository.ProductRepository;
 import com.broderieDor.repository.ThemeRepository;
@@ -34,14 +30,9 @@ public class IServicesImpl implements IServices{
 	@Autowired
 	BasketRepository basketRepo;
 	
-	@Autowired
-	CommandeRepository commandeRepo;
 	
 	@Autowired
 	UserRepository userRepo;
-	
-	@Autowired
-	OrderLineRepository ligneCommandeRepo;
 
 	
 	@Override
@@ -68,22 +59,11 @@ public class IServicesImpl implements IServices{
 		return themeRepo.findAll();
 	}
 
-	@Override
-	public List<Commande> allCommandes() {
-		
-		return commandeRepo.findAll();
-	}
 
 	@Override
 	public List<User> allClients() {
 	
 		return userRepo.findAll();
-	}
-
-	@Override
-	public List<OrderLine> allLigneCommandes() {
-		
-		return ligneCommandeRepo.findAll();
 	}
 
 	@Override
