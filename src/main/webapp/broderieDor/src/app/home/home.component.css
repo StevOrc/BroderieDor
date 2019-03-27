@@ -117,15 +117,6 @@ main #hrbas{
 }
 
 
-/* MAIN EACH SECTION*/
-
-
-/*CUSTOM TABLE*/
-
-
-/*SECTION CUSTOM CARD*/
-
-
 .list li{
     width: 100%;
     text-align: left;
@@ -148,45 +139,25 @@ main div.offre{
 main div.offre .card-header{
     text-align: center;
     width: 100%;
-}
- /* CUSTOM the color of cards-header*/
-main div.offre .Bronze .card-header{
-    background: #DAA520;
-}
-
-main div.offre .Argent .card-header{
-    background: #DAA520;
-}
-
-main div.offre .Or .card-header{
-    background: #DAA520;
-}
-
-main div.offre .Avant .card-header{
-    background: #DAA520;
-}
-
-main div.offre .Après .card-header{
     background: #DAA520;
 }
 
 /* CUSTOM the color of h5's cards-header*/
 
 main div.offre .card-header h5{
-    color: white;
+    color: white
 }
 
-main div.offre .btn{
-    color: white;
-    background: #DAA520;
-    border: #DAA520;
+.card-footer{
+    text-align: center;
 }
+
 
 /*JUMBOTRON*/
 
 .jumbotron{
     background: #191919;
-    color: white;
+    color: white
 }
 
 .jumbotron h2{
@@ -212,23 +183,10 @@ main div.offre .btn{
         padding-right: 0px;
     }
 
-    #offre div.customothers{
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-
-
  }
  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
 @media screen and (max-width: 801px)  { 
     #offre div.customnaissance{
-        display: flex;
-        flex-direction: column;
-        padding-left: 50px;
-        padding-right: 50px;
-    }
-
-    #offre div.customothers{
         display: flex;
         flex-direction: column;
         padding-left: 50px;

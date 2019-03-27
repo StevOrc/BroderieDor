@@ -37,6 +37,9 @@ public class Basket {
 	@JoinColumn(name="idTheme")
 	private Theme theme;
 
+	@NotBlank
+	@Length(max = 100)
+	private String urlPhoto;
 	
 	@OneToMany(mappedBy="basket")
 	private List<BasketLine> basketLines;
@@ -95,6 +98,18 @@ public class Basket {
 	public void setTheme(Theme theme) {
 		this.theme = theme;
 	}
+	
+	
+
+	public String getUrlPhoto() {
+		return urlPhoto;
+	}
+
+
+	public void setUrlPhoto(String urlPhoto) {
+		this.urlPhoto = urlPhoto;
+	}
+
 
 	public List<BasketLine> getBasketLines() {
 		return basketLines;

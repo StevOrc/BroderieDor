@@ -25,7 +25,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": ["src/app/header/header.js"]
+            "scripts": ["src/app/header/header.js"
+            ]
           },
           "configurations": {
             "production": {

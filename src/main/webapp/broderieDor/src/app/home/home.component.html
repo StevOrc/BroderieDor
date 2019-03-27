@@ -36,28 +36,27 @@
                     </p>
                 </div>
                 <div class="container-fluid">
-                    <div class="offre">
-                        <!-- Then, loop on each panel by theme to generate a card -->
-                        <div  *ngFor="let basket of listThemes[i].baskets;" [class]=" 'card col-lg-3 mb-4 ml-auto mr-auto ' +basket.name">
-                            <div class="card-header">
-                            <h5 class="font-weight-normal"><i class="fas fa-award"></i> Panier {{basket.name}} {{basket.price}} €</h5>
-                            </div>
-                            <div class="card-body d-flex flex-column">
-                                <ul>
-                                    <!-- Finnaly, loop on each panel to generate the body of all product by panel -->
-                                    <li *ngFor="let basketLine of basket.basketLines"> {{basketLine.quantity}} 
-                                        {{basketLine.product.name}}</li>
-                                </ul>
-                            <button type="button" class="mt-auto btn btn-lg btn-block btn-primary" (click)="createOrder();
-                                    commande.prix=basket.price;
-                                    commande.nomProduit=basket.name;
-                                    commande.idProduit=basket.idBasket"
-                                    
-                                >Commander</button>
-                            </div>
-                      </div>
+                        <div class="offre">
+                            <!-- Then, loop on each panel by theme to generate a card -->
+                            <div  *ngFor="let basket of listThemes[i].baskets;" [class]=" 'card col-lg-3 mb-4 ml-auto mr-auto ' +basket.name">
+                                <div class="card-header">
+                                    <p class="card-text"> <strong>Panier {{basket.name}} {{basket.price}} €</strong></p>
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <ul>
+                                        <!-- Finnaly, loop on each panel to generate the body of all product by panel -->
+                                        <li *ngFor="let basketLine of basket.basketLines"> {{basketLine.quantity}} 
+                                            {{basketLine.product.name}}</li>
+                                    </ul>
+                                </div>
+                                <div class="card-footer">
+                                        <a href="../../assets/images/{{basket.urlPhoto}}.jpg">
+                                            Voir Photo
+                                        </a>
+                                </div>
+                          </div>
+                        </div>
                     </div>
-                </div>
             </div>
     </main>
 </div>

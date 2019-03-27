@@ -1,3 +1,96 @@
-<p>
-  dashboard-client works!
-</p>
+<main *ngIf="isLogged" class="container-fluid">
+    <div class="table-wrapper col-lg-10">
+        <section class="table-title">
+              <div class="row">
+                  <div class="col-sm-6">
+                      <h2>Gestion des Clients</h2>
+                  </div>
+              </div>
+          </section>
+        <table class="table table-striped table-hover">
+          <thead>
+              <tr>
+                <th>id client</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>pseudo</th>
+                <th>compte activé</th>
+                <th>code promotion</th> 
+                <th>action</th>
+              </tr>     
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td> {{user.idUser}} </td>
+              <td> {{user.lastName}} </td>
+              <td> {{user.firstName}} </td>
+              <td> {{user.username}} </td>
+              <td> {{user.valid == false ? 'En attente' : 'validé'}} </td>
+              <td> {{user.promotion == false ? 'pas de promotion' : 'promotion accordée'}} 
+                    <button class="btn" (click)="selectedUser = user; promo(false)"><i class="fas fa-times"></i></button>
+                    <button class="btn" (click)="selectedUser = user; promo(true)"><i class="fas fa-plus"></i></button>
+              </td>
+              <td class="crudTD">
+                  <button *ngIf="user.valid == false" class="btn" (click)="selectedUser = user; operation = 'EDIT'">
+                      <i class="fas fa-check"></i>
+                  </button>
+                  <button class="btn" (click)="selectedUser = user; operation = 'REMOVE'">
+                      <i class="fas fa-trash-alt"></i>
+                  </button>
+              </td>
+            </tr>
+              <tr>
+          </tbody>
+        </table>
+    </div>
+  
+    <!-- FORM FOR CRUD PRODUCT -->
+    <div *ngIf="operation == 'EDIT'" class="customForm col-lg-4 col-md-6">
+        <section id="validUser">
+            <strong>
+              <p class="titleForm"> Valider l'inscription ?
+              </p>
+              <button class="btn customBtnLeave" (click)="initOperation()" id="quitter"><i class="fas fa-times"></i></button>
+          </strong>
+            <p *ngIf="operation == 'EDIT'">Id produit : {{selectedUser.idUser}} </p>
+      
+            <p> Nom produit : {{selectedUser.lastName}} </p>
+      
+            <p> Prix : {{selectedUser.firstName}} </p>
+      
+            <p> Stock : {{selectedUser.username}} </p>
+      
+            <p> Souhaitez-vous supprimer le compte de l'utilisateur ?</p>
+      
+            <button class="btn btn-success" (click)="validAccount()">Confirmer</button>
+          </section>
+    </div>
+  
+  <div *ngIf="operation == 'REMOVE'" class="customForm">
+      <section id="deleteUser">
+        <strong>
+          <p class="titleForm"> Supprimer Produit
+          </p>
+          <button class="btn customBtnLeave" (click)="initOperation()" id="quitter"><i class="fas fa-times"></i></button>
+      </strong>
+        <p *ngIf="operation == 'REMOVE'">Id produit : {{selectedUser.idUser}} </p>
+  
+        <p> Nom produit : {{selectedUser.lastName}} </p>
+  
+        <p> Prix : {{selectedUser.firstName}} </p>
+  
+        <p> Stock : {{selectedUser.username}} </p>
+  
+        <p> Souhaitez-vous supprimer le compte de l'utilisateur ?</p>
+  
+        <button class="btn btn-danger" (click)="deleteUser()">Supprimer</button>
+      </section>
+  </div>
+  <div *ngIf="operation == 'SUCCED'" class="customMessage">
+      <section id="deleteUser">
+        <p *ngIf="operation == 'SUCCED'">{{JSONResponse}} </p>
+  
+        <button class="btn btn-success" (click)="initPage()">OK</button>
+      </section>
+  </div>
+  </main>

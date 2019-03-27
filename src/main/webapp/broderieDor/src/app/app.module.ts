@@ -28,7 +28,6 @@ import { UserService } from './service/user.service';
 import { ThemeComponent } from './dashboard-theme/theme.component';
 import { DashboardBasketComponent } from './dashboard-basket/dashboard-basket.component';
 import { DashboardClientComponent } from './dashboard-client/dashboard-client.component';
-import { DashboardCommandeComponent } from './dashboard-commande/dashboard-commande.component';
 import { DashboardProduitComponent } from './dashboard-produit/dashboard-produit.component';
 
 @NgModule({
@@ -48,7 +47,6 @@ import { DashboardProduitComponent } from './dashboard-produit/dashboard-produit
     ThemeComponent,
     DashboardBasketComponent,
     DashboardClientComponent,
-    DashboardCommandeComponent,
     DashboardProduitComponent
   ],
   imports: [

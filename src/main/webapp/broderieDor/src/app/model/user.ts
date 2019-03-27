@@ -1,5 +1,4 @@
 
-import { Commande } from '../model/commande';
 
 export class User{
     idUser: number;
@@ -7,7 +6,7 @@ export class User{
     firstName: string;
     email: string;
     phone: string;
-    commandes: Commande[];
+    valid: boolean;
 
     constructor(){
 

@@ -23,8 +23,4 @@ export class UserService{
         return this.http.get(USER_URLS.READ_USER_URL+'/'+`${username}`, {headers:this.header});
     }
 
-    public  updateUser(user: {}): Observable<any>{
-        return this.http.put(USER_URLS.UPDATE_USER_URL, user, {headers:this.header});
-    }
-
 }

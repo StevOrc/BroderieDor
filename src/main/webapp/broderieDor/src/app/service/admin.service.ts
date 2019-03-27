@@ -72,4 +72,25 @@ export class AdminService{
     public deleteBasket(id): Observable<any>{
         return this.http.delete(ADMIN_URLS.ADMIN_BASKET_URL+'/'+`${id}`, {headers:this.header})
     }
+
+    // User CRUD Service
+    public getAllUser(): Observable<any>{
+        return this.http.get(ADMIN_URLS.ADMIN_USER_URL, {headers:this.header});
+    }
+    
+    public validUserAccount(id): Observable<any>{
+        return this.http.post(ADMIN_URLS.ADMIN_VALIDATE_USER_URL+'/'+`${id}`, {headers:this.header})
+    }
+    
+    public deletePromo(id): Observable<any>{
+        return this.http.post(ADMIN_URLS.ADMIN_DELETE_PROMOTION_USER_URL+'/'+`${id}`, {headers:this.header});
+    }
+
+    public addPromo(id): Observable<any>{
+        return this.http.post(ADMIN_URLS.ADMIN_ADD_PROMOTION_USER_URL+'/'+`${id}`, {headers:this.header});
+    }
+
+    public deleteUser(id): Observable<any>{
+        return this.http.delete(ADMIN_URLS.ADMIN_USER_URL+'/'+`${id}`, {headers:this.header})
+    }
 }

@@ -57,10 +57,17 @@ h2{
 
 .card{
     padding: 1px;
-    border: 5px solid rgba(0,0,0,.25) !important;
+    border: 5px solid rgba(0, 0, 0, 0.251) !important;
     border-radius: 5px !important;
 }
 
 .card p{
     text-align: center;
 }
+
+@media screen and (max-width: 850px){
+     
+    #navbas{
+        display: none;
+    }
+ }

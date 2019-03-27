@@ -1,0 +1,33 @@
+.customForm{
+    padding: 20px;
+    border: 5px solid rgba(0, 0, 0, 0.251) !important;
+    position: absolute;
+    background: snow;
+    top: 300px;
+}
+
+#quitter{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.customMessage{
+    padding: 25px;
+    border: 5px solid rgba(0, 0, 0, 0.251) !important;
+    position: absolute;
+    background: snow;
+    top: 300px;
+}
+
+.customMessage p{
+    text-align: center;
+}
+
+.fa-times{
+    color : red;
+}
+
+.fa-plus{
+    color : green;
+}

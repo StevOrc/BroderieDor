@@ -24,6 +24,10 @@ h2, p{
     form{
         width: 60%;
     }
+
+    #navbas{
+        display: none;
+    }
 }
 
 @media screen and (max-width: 500px){

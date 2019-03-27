@@ -38,4 +38,7 @@ export class HomeComponent implements OnInit {
     this.route.navigateByUrl("/commande");
   }
 
+  test(){
+    console.log("test !!");
+  }
 }

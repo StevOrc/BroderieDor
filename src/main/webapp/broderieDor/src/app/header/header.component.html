@@ -33,9 +33,30 @@
     
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item"><a class="nav-link" href="boutiqueDor.html">Boutique d'Or</a></li>
+                <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/produit">Boutique d'Or</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li>
+                <a *ngIf="!isLogged" href="/login" id="iconLogin">
+                    <small>S'inscrire / Se connecter </small> <i class="fas fa-user"></i>
+                  </a>
+          </li>
+          <li>
+                <button class="btn" *ngIf="!isLoggedOut" id="logout" (click)="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Se deconnecter
+                    </button>
+          </li>
+          <li>
+                <a *ngIf="isLogged && authority == 'admin' " href="/dashboard">
+                    <small>DashBoard </small> <i class="fas fa-chart-bar"></i>
+                </a>
+          </li>
+          <li>
+                <a *ngIf="isLogged && authority == 'user' " href="/userprofil">
+                    <small>Espace Personel </small> <i class="fas fa-chart-bar"></i>
+              </a>
+          </li>
         </ul>
       </div>
     </nav>
-   </div>
+</div>

@@ -6,6 +6,7 @@ import com.broderieDor.dto.BasketDto;
 import com.broderieDor.model.basket.Basket;
 import com.broderieDor.model.product.Product;
 import com.broderieDor.model.theme.Theme;
+import com.broderieDor.model.user.User;
 
 public interface IAdminService {
 	
@@ -28,6 +29,12 @@ public interface IAdminService {
 	public Basket updateBasket(Basket basket);
 	public void deletBasket(long id);
 	public Basket findBasketById(long id);
+	
+	//User Management
+	public List<User> getAllUsers();
+	public void deleteUser(long id);
+	public void validAccount(User user);
+	public User getUserById(long id);
 	
 	//ConverterDTO
 	public Basket convertBasketDtoToBasket(BasketDto basketDto);

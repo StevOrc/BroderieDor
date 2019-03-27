@@ -65,19 +65,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     public WebSecurityConfig() {
 		// TODO Auto-generated constructor stub
 	}
-    
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-    
-    	web.ignoring().antMatchers(HttpMethod.OPTIONS, "/**")
-    		.antMatchers("/", "/**/*.ico", "/**/*.html", "/**/*.map", "/**/*.js", "/**/*.jpg", "/**/*.svg");
-    }
+
+    // Cette config permet de lors du deploement sur pivotal de permettre d'acceder au ressource présent dans le fichier ressource static
+//    @Override
+//    public void configure(WebSecurity web) throws Exception {
+//    
+//    	web.ignoring().antMatchers(HttpMethod.OPTIONS, "/**")
+//    		.antMatchers("/", "/**/*.ico", "/**/*.html", "/**/*.map", "/**/*.js", "/**/*.jpg", "/**/*.svg");
+//    }
 	   @Override
 	    protected void configure(HttpSecurity http) throws Exception {
-	        http.cors().and().csrf().disable().
-	                authorizeRequests()
-	                .antMatchers("/api/admin/**", "api/user/**").authenticated()
-	                .anyRequest().permitAll() // Pour toute les autres ressources, il faut être authentifié
+	        http.cors().and().csrf().disable()
+	                .authorizeRequests()
+	                .antMatchers("/api/common/**").permitAll()
+	                .antMatchers("/api/auth/**").permitAll()
+	                .anyRequest().authenticated()
 	                .and()
 	                //Si il y erreur lors de l'authenfication => une erreur est envoyé dans la response 401
 	                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()

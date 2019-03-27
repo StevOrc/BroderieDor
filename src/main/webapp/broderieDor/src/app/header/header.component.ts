@@ -33,8 +33,6 @@ export class HeaderComponent implements OnInit {
         this.authority = 'user';
         return true;
       });
-      console.log(this.authority);
-      console.log(this.isLogged)
     }
   }
 

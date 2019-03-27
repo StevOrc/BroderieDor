@@ -96,8 +96,9 @@ nav#navResponsvie button{
     border-radius: none;
 }
 
-nav#navResponsvie a.nav-link{
+nav#navResponsvie a{
     color: black;
+    
 }
 
 /*RESPONSIVE*/
@@ -125,6 +126,14 @@ nav#navResponsvie a.nav-link{
     }
     #navbas{
         display: none;
+    }
+
+    #logout {
+        color : black;
+    }
+    
+    #logout i {
+        color : black;
     }
 
     #navMediumSmall{

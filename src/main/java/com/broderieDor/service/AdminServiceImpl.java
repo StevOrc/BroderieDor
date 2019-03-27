@@ -10,10 +10,17 @@ import com.broderieDor.dto.BasketDto;
 import com.broderieDor.model.basket.Basket;
 import com.broderieDor.model.product.Product;
 import com.broderieDor.model.theme.Theme;
+import com.broderieDor.model.user.User;
 import com.broderieDor.repository.BasketRepository;
 import com.broderieDor.repository.ProductRepository;
 import com.broderieDor.repository.ThemeRepository;
+import com.broderieDor.repository.UserRepository;
 
+/**
+ * This class is the Admin's services;
+ * It use repository of all model
+ * All methods are the basic CRUD for each entity
+ */
 @Service
 public class AdminServiceImpl implements IAdminService{
 	
@@ -28,6 +35,9 @@ public class AdminServiceImpl implements IAdminService{
 	
 	@Autowired
 	BasketRepository basketRepo;
+	
+	@Autowired
+	UserRepository userRepo;
 
 	//PRODUCT MANAGEMENT
 	@Override
@@ -111,6 +121,30 @@ public class AdminServiceImpl implements IAdminService{
 	public Basket findBasketById(long id) {
 		
 		return this.basketRepo.findById(id).get();
+	}
+	
+	//User Management
+	@Override
+	public List<User> getAllUsers() {
+
+		return this.userRepo.findAll();
+	}
+
+	@Override
+	public void deleteUser(long id) {
+		this.userRepo.deleteById(id);
+	}
+
+	@Override
+	public void validAccount(User user) {
+		
+		this.userRepo.save(user);	
+	}
+	
+	@Override
+	public User getUserById(long id) {
+		
+		return this.userRepo.findById(id).get();
 	}
 	
 	//ConvertetDto

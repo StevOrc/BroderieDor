@@ -11,7 +11,6 @@ import { UserspaceComponent } from './userspace/userspace.component';
 import { ThemeComponent } from './dashboard-theme/theme.component';
 import { DashboardBasketComponent } from './dashboard-basket/dashboard-basket.component';
 import { DashboardClientComponent } from './dashboard-client/dashboard-client.component';
-import { DashboardCommandeComponent } from './dashboard-commande/dashboard-commande.component';
 import { DashboardProduitComponent } from './dashboard-produit/dashboard-produit.component';
 
 const routes: Routes = [ 
@@ -61,8 +60,8 @@ const routes: Routes = [
         component: DashboardClientComponent
       },
       {
-        path: 'commande',
-        component: DashboardCommandeComponent
+        path: 'client',
+        component: DashboardClientComponent
       },
       {
         path: '**',

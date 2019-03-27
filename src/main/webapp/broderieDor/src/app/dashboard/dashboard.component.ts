@@ -36,10 +36,6 @@ export class DashboardComponent implements OnInit {
     this.route.navigate(['client'], {relativeTo: this.activeRoute})
   }
 
-  commandeView(){
-    this.route.navigate(['commande'], {relativeTo: this.activeRoute})
-  }
-
   basketView(){
     this.route.navigate(['basket'], {relativeTo: this.activeRoute})
   }

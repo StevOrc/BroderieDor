@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.broderieDor.JSONresponse.JSONresponse;
 import com.broderieDor.dto.BasketDto;
 import com.broderieDor.model.basket.Basket;
 import com.broderieDor.model.product.Product;
 import com.broderieDor.model.theme.Theme;
+import com.broderieDor.model.user.User;
 import com.broderieDor.service.IAdminService;
 import com.broderieDor.service.IServices;
 
@@ -129,4 +131,56 @@ public class AdminController {
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 	
+	//User Management
+	//@PreAuthorize("hasRole('ADMIN')")
+	@GetMapping("/users")
+	public ResponseEntity<?> getAllUsers(){
+	
+		return new ResponseEntity<List<User>>(this.adminService.getAllUsers(),HttpStatus.OK);
+	}
+	
+	@PreAuthorize("hasRole('ADMIN')")
+	@DeleteMapping("/users/{id}")
+	public ResponseEntity<?> deleteUser(@PathVariable long id){
+	
+		this.adminService.deleteUser(id);
+		return new ResponseEntity<JSONresponse>(new JSONresponse("Utilisateur supprimé avec succès"),HttpStatus.OK);
+	}
+	
+	@PreAuthorize("hasRole('ADMIN')")
+	@PostMapping("/users/validate/{id}")
+	public ResponseEntity<?> validateUser(@PathVariable long id){
+	
+		User user = this.adminService.getUserById(id);
+		if(user != null) {
+			user.setValid(true);
+			user.setPromotion(true);
+			this.adminService.validAccount(user);
+		}
+		return new ResponseEntity<JSONresponse>(new JSONresponse("Compte utilisateur validé"),HttpStatus.OK);
+	}
+	
+	@PreAuthorize("hasRole('ADMIN')")
+	@PostMapping("/users/addpromo/{id}")
+	public ResponseEntity<?> addPromo(@PathVariable long id){
+	
+		User user = this.adminService.getUserById(id);
+		if(user != null) {
+			user.setPromotion(true);
+			this.adminService.validAccount(user);
+		}
+		return new ResponseEntity<JSONresponse>(new JSONresponse("Opération validée, promo accordée"),HttpStatus.OK);
+	}
+	
+	@PreAuthorize("hasRole('ADMIN')")
+	@PostMapping("/users/deletepromo/{id}")
+	public ResponseEntity<?> deletePromo(@PathVariable long id){
+	
+		User user = this.adminService.getUserById(id);
+		if(user != null) {
+			user.setPromotion(false);
+			this.adminService.validAccount(user);
+		}
+		return new ResponseEntity<JSONresponse>(new JSONresponse("Opération validée, promo supprimée"),HttpStatus.OK);
+	}
 }

@@ -54,9 +54,12 @@ public class User {
     @Size(min=5, max=150)
     private String password;
     
+    
     private boolean valid;
-	
-	  @ManyToMany(fetch = FetchType.LAZY)
+    
+    private boolean promotion;
+
+	@ManyToMany(fetch = FetchType.LAZY)
 	  @JoinTable(name = "user_roles", 
 	  	joinColumns = @JoinColumn(name = "user_id"), 
 	  	inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -153,5 +156,11 @@ public class User {
 		this.valid = valid;
 	}
 	 
-	
+	  public boolean isPromotion() {
+		return promotion;
+	}
+
+	public void setPromotion(boolean promotion) {
+		this.promotion = promotion;
+	}
 }
