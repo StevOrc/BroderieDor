@@ -26,9 +26,8 @@ export class HomeComponent implements OnInit {
 
   allThemes(){
     this.themeSerive.getAllThemes().subscribe(
-      data => {this.listThemes = data; console.log(this.listThemes)},
+      data => {this.listThemes = data},
       err => {console.log(err)},
-      () => {console.log("all themes loaded")}
     )
   }
 
@@ -36,9 +35,5 @@ export class HomeComponent implements OnInit {
     this.commande.dateCommande = Date.now();
     console.log(this.commande);
     this.route.navigateByUrl("/commande");
-  }
-
-  test(){
-    console.log("test !!");
   }
 }

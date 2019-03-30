@@ -27,7 +27,7 @@
 <hr id="hrbas">
 <section class="row" id="sectionProduit">
   <div *ngFor="let produit of listProduct" class="card" style="width: 15rem;">
-    <a href="../../assets/images/{{produit.urlPhoto}}.JPG" (click)="test()"><img class="card-img-top" src='../../assets/images/{{produit.urlPhoto}}.JPG' alt="Card image cap"></a>
+    <a href="../../assets/images/{{produit.urlPhoto}}.JPG"><img class="card-img-top" src='../../assets/images/{{produit.urlPhoto}}.JPG' alt="Card image cap"></a>
     <div class="card-body">
       <p class="card-text">{{produit.name}} </p>
     </div>

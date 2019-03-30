@@ -66,17 +66,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		// TODO Auto-generated constructor stub
 	}
 
-    // Cette config permet de lors du deploement sur pivotal de permettre d'acceder au ressource présent dans le fichier ressource static
+     //Cette config permet de lors du deploement sur pivotal de permettre d'acceder aux ressources présent dans le fichier ressource static
 //    @Override
 //    public void configure(WebSecurity web) throws Exception {
 //    
 //    	web.ignoring().antMatchers(HttpMethod.OPTIONS, "/**")
-//    		.antMatchers("/", "/**/*.ico", "/**/*.html", "/**/*.map", "/**/*.js", "/**/*.jpg", "/**/*.svg");
+//    		.antMatchers("/**", "/**/*.ico", "/**/*.html", "/**/*.map", "/**/*.js", "/**/*.jpg", "/**/*.svg");
 //    }
 	   @Override
 	    protected void configure(HttpSecurity http) throws Exception {
 	        http.cors().and().csrf().disable()
 	                .authorizeRequests()
+//	                .antMatchers("/**").permitAll()
 	                .antMatchers("/api/common/**").permitAll()
 	                .antMatchers("/api/auth/**").permitAll()
 	                .anyRequest().authenticated()

@@ -31,7 +31,7 @@ export class DashboardClientComponent implements OnInit {
 
   getAllUsers(){
     this.seriveAdmin.getAllUser().subscribe(
-      data => {this.users = data; console.log(data)},
+      data => {this.users = data},
       error => {console.log(error)}
     )
   }
@@ -61,12 +61,12 @@ export class DashboardClientComponent implements OnInit {
   promo(promo: boolean){
     if(promo === false){
       this.seriveAdmin.deletePromo(this.selectedUser.idUser).subscribe(
-        data => {console.log(data); this.reloadPage()},
+        data => {this.reloadPage()},
         error => {console.log(error)}
       )
     }else if(promo === true){
       this.seriveAdmin.addPromo(this.selectedUser.idUser).subscribe(
-        data => {console.log(data); this.reloadPage()},
+        data => {this.reloadPage()},
         error => {console.log(error)}
       )
     }

@@ -79,15 +79,15 @@ export class AdminService{
     }
     
     public validUserAccount(id): Observable<any>{
-        return this.http.post(ADMIN_URLS.ADMIN_VALIDATE_USER_URL+'/'+`${id}`, {headers:this.header})
+        return this.http.post(ADMIN_URLS.ADMIN_VALIDATE_USER_URL+'/'+`${id}`, {}, {headers:this.header})
     }
     
     public deletePromo(id): Observable<any>{
-        return this.http.post(ADMIN_URLS.ADMIN_DELETE_PROMOTION_USER_URL+'/'+`${id}`, {headers:this.header});
+        return this.http.post(ADMIN_URLS.ADMIN_DELETE_PROMOTION_USER_URL+'/'+`${id}`, {}, {headers:this.header});
     }
 
     public addPromo(id): Observable<any>{
-        return this.http.post(ADMIN_URLS.ADMIN_ADD_PROMOTION_USER_URL+'/'+`${id}`, {headers:this.header});
+        return this.http.post(ADMIN_URLS.ADMIN_ADD_PROMOTION_USER_URL+'/'+`${id}`, {}, {headers:this.header});
     }
 
     public deleteUser(id): Observable<any>{

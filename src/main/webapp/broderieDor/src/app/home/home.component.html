@@ -5,7 +5,7 @@
             <ul>
                 <li><a href="#" class="linkNavbas"><i class="fas fa-home"></i></a></li>
                 <!-- Loop *ngFor on listThemes to genrate nav menu links depending on theme in Database.theme-->
-                <li *ngFor="let theme of listThemes"><a [attr.href]="'home#jum' + theme.nom" target="_self"
+                <li *ngFor="let theme of listThemes"><a [attr.href]="'home#jum' + theme.name" target="_self"
                     class="linkNavbas">{{theme.name}}</a></li>
                 <li><a href="/produit" class="linkNavbas">Boutique d'Or</a></li>
                 <li><a href="home#contact" target="_self" class="linkNavbas">Contact</a></li>
@@ -29,7 +29,7 @@
 
             <!-- Loop *ngFor on listThemes to genrate Jumbotron for each theme present in Database.theme -->
             <div *ngFor="let theme of listThemes; let i = index" class="conatiner custom">
-                <div class="container-fluid jumbotron jumbotron-fluid" [attr.id]=" 'jum' + theme.nom">
+                <div class="container-fluid jumbotron jumbotron-fluid" [attr.id]=" 'jum' + theme.name">
                     <h2 class="dislay-4 container"> {{theme.name}} </h2>
                     <p class="container">
                         {{theme.description}}

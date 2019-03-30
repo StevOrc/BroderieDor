@@ -39,7 +39,7 @@
   </div>
 
   <!-- FORM FOR CRUD PRODUCT -->
-  <div *ngIf="operation == 'ADD' || operation == 'EDIT'" class="customForm col-lg-4">
+  <div *ngIf="operation == 'ADD' || operation == 'EDIT'" class="customForm">
   <form [formGroup]="crudProductForm" class="formCustom">
     <strong>
       <p class="titleForm"> {{ operation == 'ADD' ? 'Ajouter produit' :
@@ -74,7 +74,7 @@
   </form>
 </div>
 
-<div *ngIf="operation == 'REMOVE'" class="customForm col-lg-4">
+<div *ngIf="operation == 'REMOVE'" class="customForm">
     <section id="deleteProduct">
       <strong>
         <p class="titleForm"> Supprimer Produit

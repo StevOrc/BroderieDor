@@ -132,7 +132,7 @@ public class AdminController {
 	}
 	
 	//User Management
-	//@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/users")
 	public ResponseEntity<?> getAllUsers(){
 	

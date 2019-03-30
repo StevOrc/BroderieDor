@@ -89,7 +89,7 @@ export class DashboardBasketComponent implements OnInit {
 
   getAllBasket(){
     this.adminService.getAllBasket().subscribe(
-      data => {this.baskets = data; console.log(this.baskets)},
+      data => {this.baskets = data},
       error => {console.log(error)},
     )
   }
@@ -111,7 +111,7 @@ export class DashboardBasketComponent implements OnInit {
   createBasket(){
     this.selectedBasket.basketLines = this.crudBasketForm.controls.basketLines.value;
     this.adminService.createBasket(this.selectedBasket).subscribe(
-      data => {console.log(data); this.reloadPage()},
+      data => {this.reloadPage()},
       error => {console.log(error)}
     )
   }

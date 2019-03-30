@@ -150,8 +150,12 @@ main div.offre .card-header h5{
 
 .card-footer{
     text-align: center;
+    background: rgba(0, 0, 0, 0.251);
 }
 
+.card-footer a{
+    color: black;
+}
 
 /*JUMBOTRON*/
 

@@ -38,9 +38,8 @@ export class ThemeComponent implements OnInit {
 
   getAllTheme(){
     this.adminService.getAllTheme().subscribe(
-      data => {this.themes = data; console.log(this.themes)},
+      data => {this.themes = data},
       error => {console.log(error)},
-      () => {console.log("ALL THEME LOADED")}
     )
   }
 
@@ -51,14 +50,14 @@ export class ThemeComponent implements OnInit {
 
   addTheme(){
     this.adminService.createTheme(this.selectedTheme).subscribe(
-      data => { console.log(data); this.reloadPage() },
+      data => {this.reloadPage() },
       error => { console.log(error)}
     )
   }
 
   updateTheme(){
     this.adminService.updateTheme(this.selectedTheme).subscribe(
-      data => {console.log(data); this.reloadPage()},
+      data => {this.reloadPage()},
       error => {console.log(error)}
     )
   }
@@ -66,7 +65,7 @@ export class ThemeComponent implements OnInit {
 
   deleteTheme(){
     this.adminService.deleteTheme(this.selectedTheme.idTheme).subscribe(
-      data => {console.log(data); this.reloadPage()},
+      data => {this.reloadPage()},
       error => {console.log(error)}
     )
   }

@@ -14,7 +14,7 @@
 </h3>
 <p *ngIf="!isLogged" class="messageLoggedOut">Connectez vous pour accéder à votre Dashboard</p>
 
-<nav class="container-fluid" id="gestion">
+<nav *ngIf="isLogged" class="container-fluid" id="gestion">
   <button class="btn btn-primary" (click)="productView()">Produit</button>
   <button class="btn btn-primary" (click)="themeView()">Theme</button>
   <button class="btn btn-primary" (click)="basketView()">Panier</button>

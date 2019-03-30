@@ -22,3 +22,9 @@ nav#gestion button{
     outline: none !important;
     margin-left: 10px;
 }
+
+@media screen and (max-width: 600px){
+    #navbas{
+        display: none;
+    }
+ }
