@@ -39,6 +39,7 @@ export class DashboardBasketComponent implements OnInit {
       name: [],
       price: [],
       theme: [],
+      urlPhoto: [],
       basketLines: this.fb.array([this.addLines()])
     })
   }
@@ -89,7 +90,7 @@ export class DashboardBasketComponent implements OnInit {
 
   getAllBasket(){
     this.adminService.getAllBasket().subscribe(
-      data => {this.baskets = data},
+      data => {this.baskets = data; console.log(this.baskets)},
       error => {console.log(error)},
     )
   }

@@ -40,12 +40,12 @@
                             <!-- Then, loop on each panel by theme to generate a card -->
                             <div  *ngFor="let basket of listThemes[i].baskets;" [class]=" 'card col-lg-3 mb-4 ml-auto mr-auto ' +basket.name">
                                 <div class="card-header">
-                                    <p class="card-text"> <strong>Panier {{basket.name}} {{basket.price}} €</strong></p>
+                                    <p class="card-text"> Panier {{basket.name}} {{basket.price}} €</p>
                                 </div>
                                 <div class="card-body d-flex flex-column">
                                     <ul>
                                         <!-- Finnaly, loop on each panel to generate the body of all product by panel -->
-                                        <li *ngFor="let basketLine of basket.basketLines"> {{basketLine.quantity}} 
+                                        <li *ngFor="let basketLine of basket.basketLines"> {{basketLine.quantity}} x 
                                             {{basketLine.product.name}}</li>
                                     </ul>
                                 </div>

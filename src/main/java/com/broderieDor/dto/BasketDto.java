@@ -17,21 +17,24 @@ public class BasketDto {
 	
     @NotBlank
 	private float price;
-	
-    private List<BasketLineDto> basketLines;
+    
+    @NotBlank
+	private String urlPhoto;
+
+	private List<BasketLineDto> basketLines;
 
 	public BasketDto() {
 		
 	}
 
 	
-	public BasketDto(@NotBlank String name, @NotBlank String theme, @NotBlank float price,
+	public BasketDto(@NotBlank String name, @NotBlank String theme, @NotBlank float price, String urlPhoto,
 			List<BasketLineDto> basketLines) {
-		super();
 		this.name = name;
 		this.theme = theme;
 		this.price = price;
 		this.basketLines = basketLines;
+		this.urlPhoto = urlPhoto;
 	}
 
 	//GETTERS - SETTERS
@@ -76,6 +79,14 @@ public class BasketDto {
 		return basketLines;
 	}
 
+    public String getUrlPhoto() {
+		return urlPhoto;
+	}
+
+
+	public void setUrlPhoto(String urlPhoto) {
+		this.urlPhoto = urlPhoto;
+	}
 
 	public void setBasketLines(List<BasketLineDto> basketLines) {
 		this.basketLines = basketLines;

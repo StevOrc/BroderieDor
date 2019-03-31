@@ -30,6 +30,7 @@ public class BasketConverter implements Converter<BasketDto, Basket>{
 		basket.setName(basketDto.getName());
 		basket.setTheme(this.adminService.findThemeByName(basketDto.getTheme()));
 		basket.setPrice(basketDto.getPrice());
+		basket.setUrlPhoto(basketDto.getUrlPhoto());
 		this.adminService.createBasket(basket);
 		
 		System.out.println(basketDto.getBasketLine());

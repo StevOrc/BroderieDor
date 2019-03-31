@@ -78,6 +78,11 @@
                 <option *ngFor="let theme of themes"> {{theme.name}} </option>
                 </select>
           </div>
+          <div class="input-group">
+            <label for="">Nom photo</label>
+            <input type="text" class="form-control" formControlName="urlPhoto"
+            [(ngModel)]="selectedBasket.urlPhoto">
+          </div>
           <div *ngIf="operation == 'ADD'" formArrayName="basketLines" class="input-group">
             <label>Liste Produit : </label>
               <div *ngFor="let group of basketLinesArray.controls; let i = index" [formGroupName]="i">

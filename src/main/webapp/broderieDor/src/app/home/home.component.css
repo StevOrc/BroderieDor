@@ -84,7 +84,7 @@ main{
 main #descriptif h1{
     margin-top : 15px;
     text-align: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Great Vibes', cursive;
     font-size: 3em;
 }
 
@@ -150,22 +150,24 @@ main div.offre .card-header h5{
 
 .card-footer{
     text-align: center;
-    background: rgba(0, 0, 0, 0.251);
+    /* background: rgba(0, 0, 0, 0.251); */
+    background: #DAA520;
 }
 
 .card-footer a{
-    color: black;
+    color: #191919;
 }
 
 /*JUMBOTRON*/
 
 .jumbotron{
     background: #191919;
-    color: white
+    color: #DAA520
 }
 
 .jumbotron h2{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Great Vibes', cursive;
+    font-size: 4.1em
 }
 
 .jumbotron p{
