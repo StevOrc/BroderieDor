@@ -33,7 +33,7 @@ public class Theme {
 	@Column(unique=true)
 	private String name;
 	
-	@NotEmpty
+	
 	private String description;
 	
 	@OneToMany(mappedBy="theme")
@@ -43,11 +43,14 @@ public class Theme {
 		
 	}
 	
-	public Theme(@NotNull long idTheme, String name, List<Basket> baskets) {
-		this.idTheme = idTheme;
+
+	public Theme(@NotEmpty @Length(max = 15) String name, String description) {
+		super();
 		this.name = name;
-		this.baskets = baskets;
+		this.description = description;
 	}
+
+
 
 	//GETTERS - SETTERS
 	public String getName() {

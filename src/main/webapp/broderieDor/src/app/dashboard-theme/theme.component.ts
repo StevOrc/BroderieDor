@@ -70,6 +70,10 @@ export class ThemeComponent implements OnInit {
     )
   }
 
+  initOperation(){
+    this.operation = '';
+  }
+
   reloadPage(){
     window.location.reload();
   }

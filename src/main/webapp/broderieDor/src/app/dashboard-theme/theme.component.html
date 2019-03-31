@@ -38,13 +38,14 @@
   </div>
   <!-- FORM FOR CRUD PRODUCT -->
 </main>
-<div *ngIf="operation == 'ADD' || operation == 'EDIT'" class="customForm col-lg-4">
+<div *ngIf="operation == 'ADD' || operation == 'EDIT'" class="customForm">
     <form [formGroup]="crudFormTheme">
       <strong>
-        <p class="titleForm"> {{ operation == 'ADD' ? 'Ajouter them' :
+        <p class="titleForm"> {{ operation == 'ADD' ? 'Ajouter theme' :
              operation == 'EDIT' ? 'Modifier theme' : ''
           }} 
         </p>
+        <button class="btn" (click)="initOperation()" id="quitter"><i class="fas fa-times"></i></button>
     </strong>
       <p *ngIf="operation == 'EDIT'">Id produit : {{selectedTheme.idTheme}} </p>
       <div class="input-group">
@@ -68,7 +69,7 @@
   </div>
 
 <div *ngIf="operation == 'REMOVE'" class="customForm col-lg-4" >
-    <section>
+    <section id="deleteBasket">
       <strong>
         <p class="titleForm"> Supprimer Produit
         </p>
@@ -80,7 +81,7 @@
       <p> Description : {{selectedTheme.description}} </p>
 
       <p> Souhaitez-vous supprimer le produit ?</p>
-
+      <button class="btn" (click)="initOperation()" id="quitter"><i class="fas fa-times"></i></button>
       <button class="btn btn-danger" (click)="deleteTheme()">Supprimer</button>
     </section>
 </div>

@@ -52,7 +52,6 @@ public class Product {
 
 	public Product(@NotBlank @Length(max = 255) String name, @NotNull float price, @NotNull int stock,
 			@NotBlank @Length(max = 100) String urlPhoto) {
-		super();
 		this.name = name;
 		this.price = price;
 		this.stock = stock;

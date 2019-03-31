@@ -51,12 +51,10 @@ public class Basket {
 	}
 
 	
-	public Basket(@NotBlank @Length(max = 50) String name, @NotNull float price, Theme theme,
-			List<BasketLine> basketLines, String urlPhoto) {
+	public Basket(@NotBlank @Length(max = 50) String name, @NotNull float price, Theme theme, String urlPhoto) {
 		this.name = name;
 		this.price = price;
 		this.theme = theme;
-		this.basketLines = basketLines;
 		this.urlPhoto = urlPhoto;
 	}
 
