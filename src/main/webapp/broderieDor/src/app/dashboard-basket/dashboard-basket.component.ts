@@ -126,7 +126,8 @@ export class DashboardBasketComponent implements OnInit {
       this.crudBasketForm.controls.name.value,
       this.crudBasketForm.value.price,
       this.crudBasketForm.value.theme,
-      this.crudBasketForm.value.basketLines
+      this.crudBasketForm.value.basketLines,
+      this.crudBasketForm.value.urlPhoto
     );
     console.log(basketTemp);
     this.adminService.updateBasket(basketTemp).subscribe(

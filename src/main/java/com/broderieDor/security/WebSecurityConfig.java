@@ -1,6 +1,5 @@
 package com.broderieDor.security;
 
-import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -17,9 +16,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.broderieDor.security.jwt.JwtAuthEntryPoint;
 import com.broderieDor.security.jwt.JwtAuthTokenFilter;
@@ -67,17 +63,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	}
 
      //Cette config permet de lors du deploement sur pivotal de permettre d'acceder aux ressources présent dans le fichier ressource static
-//    @Override
-//    public void configure(WebSecurity web) throws Exception {
-//    
-//    	web.ignoring().antMatchers(HttpMethod.OPTIONS, "/**")
-//    		.antMatchers("/**", "/**/*.ico", "/**/*.html", "/**/*.map", "/**/*.js", "/**/*.jpg", "/**/*.svg");
-//    }
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+    
+    	web.ignoring().antMatchers(HttpMethod.OPTIONS, "/**")
+    		.antMatchers("/**", "/**/*.ico", "/**/*.html", "/**/*.map", "/**/*.js", "/**/*.jpg", "/**/*.svg");
+    }
 	   @Override
 	    protected void configure(HttpSecurity http) throws Exception {
 	        http.cors().and().csrf().disable()
 	                .authorizeRequests()
-//	                .antMatchers("/**").permitAll()
+	                .antMatchers("/**").permitAll()
 	                .antMatchers("/api/common/**").permitAll()
 	                .antMatchers("/api/auth/**").permitAll()
 	                .anyRequest().authenticated()

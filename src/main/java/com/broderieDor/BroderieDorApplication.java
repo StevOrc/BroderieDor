@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.broderieDor.model.basket.Basket;
@@ -52,7 +50,11 @@ public class BroderieDorApplication implements CommandLineRunner{
 	// This method will be run at first when the applicationn is launched
 	@Override
 	public void run(String... args) throws Exception {
-		
+//		initRole();
+//		initTheme();
+//		initProduct();
+//		initBakset();
+//		initUser();
 	}
 	
 	// This method will initiate Roles 
