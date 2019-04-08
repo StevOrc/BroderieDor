@@ -60,10 +60,6 @@ const routes: Routes = [
         component: DashboardClientComponent
       },
       {
-        path: 'client',
-        component: DashboardClientComponent
-      },
-      {
         path: '**',
         redirectTo: 'produit',
         pathMatch: 'full'

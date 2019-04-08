@@ -9,9 +9,5 @@ import com.broderieDor.model.basket.Basket;
 
 public interface BasketRepository extends JpaRepository<Basket, Long>{
 
-	
-	default List<Basket> findAlll() {
-		
-		return findAll();
-	}
+
 }

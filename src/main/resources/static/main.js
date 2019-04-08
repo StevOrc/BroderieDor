@@ -108,10 +108,6 @@ var routes = [
                 component: _dashboard_client_dashboard_client_component__WEBPACK_IMPORTED_MODULE_12__["DashboardClientComponent"]
             },
             {
-                path: 'client',
-                component: _dashboard_client_dashboard_client_component__WEBPACK_IMPORTED_MODULE_12__["DashboardClientComponent"]
-            },
-            {
                 path: '**',
                 redirectTo: 'produit',
                 pathMatch: 'full'
@@ -416,6 +412,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TokenStorageService", function() { return TokenStorageService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
 
 
 var TOKEN_KEY = 'AuthToken';
@@ -425,7 +423,8 @@ var AUTHORITIES_KEY = 'AuthAuthorities';
 // grace à l'objet sessionStorage
 // Avec cet objet les données ne sont sauvegardées que jusqu'a la fin de la fenêtre ou de l'onglet
 var TokenStorageService = /** @class */ (function () {
-    function TokenStorageService() {
+    function TokenStorageService(route) {
+        this.route = route;
         this.roles = [];
     }
     TokenStorageService.prototype.signOut = function () {
@@ -466,7 +465,7 @@ var TokenStorageService = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], TokenStorageService);
     return TokenStorageService;
 }());
@@ -650,7 +649,7 @@ var ADMIN_URLS = {
     //Product
     ADMIN_PRODUCT_URL: '/api/admin/product',
     ADMIN_PRODUCT_UPDATE_URL: '/api/admin/product/update',
-    ADMIN_PRODUCT_CREATE_URL: 'api/admin/product/create',
+    ADMIN_PRODUCT_CREATE_URL: '/api/admin/product/create',
     //Theme
     ADMIN_THEME_URL: '/api/admin/theme',
     ADMIN_THEME_CREATE_URL: '/api/admin/theme/create',
@@ -896,7 +895,7 @@ var DashboardBasketComponent = /** @class */ (function () {
         console.log(item);
         console.log(idBasket);
         console.log(this.crudBasketForm);
-        var basketTemp = new _model_basket__WEBPACK_IMPORTED_MODULE_5__["Basket"](idBasket, this.crudBasketForm.controls.name.value, this.crudBasketForm.value.price, this.crudBasketForm.value.theme, this.crudBasketForm.value.basketLines);
+        var basketTemp = new _model_basket__WEBPACK_IMPORTED_MODULE_5__["Basket"](idBasket, this.crudBasketForm.controls.name.value, this.crudBasketForm.value.price, this.crudBasketForm.value.theme, this.crudBasketForm.value.basketLines, this.crudBasketForm.value.urlPhoto);
         console.log(basketTemp);
         this.adminService.updateBasket(basketTemp).subscribe(function (data) { console.log(data); _this.reloadPage(); }, function (error) { console.log(error); });
     };
@@ -946,7 +945,7 @@ module.exports = ".customForm{\r\n    padding: 20px;\r\n    border: 5px solid rg
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<main *ngIf=\"isLogged\" class=\"container-fluid\">\n    <div class=\"table-wrapper col-lg-10\">\n        <section class=\"table-title\">\n              <div class=\"row\">\n                  <div class=\"col-sm-6\">\n                      <h2>Gestion des Clients</h2>\n                  </div>\n              </div>\n          </section>\n        <table class=\"table table-striped table-hover\">\n          <thead>\n              <tr>\n                <th>id client</th>\n                <th>Nom</th>\n                <th>Prénom</th>\n                <th>pseudo</th>\n                <th>compte activé</th>\n                <th>code promotion</th> \n                <th>action</th>\n              </tr>     \n          </thead>\n          <tbody>\n            <tr *ngFor=\"let user of users\">\n              <td> {{user.idUser}} </td>\n              <td> {{user.lastName}} </td>\n              <td> {{user.firstName}} </td>\n              <td> {{user.username}} </td>\n              <td> {{user.valid == false ? 'En attente' : 'validé'}} </td>\n              <td> {{user.promotion == false ? 'pas de promotion' : 'promotion accordée'}} \n                    <button class=\"btn\" (click)=\"selectedUser = user; promo(false)\"><i class=\"fas fa-times\"></i></button>\n                    <button class=\"btn\" (click)=\"selectedUser = user; promo(true)\"><i class=\"fas fa-plus\"></i></button>\n              </td>\n              <td class=\"crudTD\">\n                  <button *ngIf=\"user.valid == false\" class=\"btn\" (click)=\"selectedUser = user; operation = 'EDIT'\">\n                      <i class=\"fas fa-check\"></i>\n                  </button>\n                  <button class=\"btn\" (click)=\"selectedUser = user; operation = 'REMOVE'\">\n                      <i class=\"fas fa-trash-alt\"></i>\n                  </button>\n              </td>\n            </tr>\n              <tr>\n          </tbody>\n        </table>\n    </div>\n  \n    <!-- FORM FOR CRUD PRODUCT -->\n    <div *ngIf=\"operation == 'EDIT'\" class=\"customForm col-lg-4 col-md-6\">\n        <section id=\"validUser\">\n            <strong>\n              <p class=\"titleForm\"> Valider l'inscription ?\n              </p>\n              <button class=\"btn customBtnLeave\" (click)=\"initOperation()\" id=\"quitter\"><i class=\"fas fa-times\"></i></button>\n          </strong>\n            <p *ngIf=\"operation == 'EDIT'\">Id produit : {{selectedUser.idUser}} </p>\n      \n            <p> Nom produit : {{selectedUser.lastName}} </p>\n      \n            <p> Prix : {{selectedUser.firstName}} </p>\n      \n            <p> Stock : {{selectedUser.username}} </p>\n      \n            <p> Souhaitez-vous supprimer le compte de l'utilisateur ?</p>\n      \n            <button class=\"btn btn-success\" (click)=\"validAccount()\">Confirmer</button>\n          </section>\n    </div>\n  \n  <div *ngIf=\"operation == 'REMOVE'\" class=\"customForm\">\n      <section id=\"deleteUser\">\n        <strong>\n          <p class=\"titleForm\"> Supprimer Produit\n          </p>\n          <button class=\"btn customBtnLeave\" (click)=\"initOperation()\" id=\"quitter\"><i class=\"fas fa-times\"></i></button>\n      </strong>\n        <p *ngIf=\"operation == 'REMOVE'\">Id produit : {{selectedUser.idUser}} </p>\n  \n        <p> Nom produit : {{selectedUser.lastName}} </p>\n  \n        <p> Prix : {{selectedUser.firstName}} </p>\n  \n        <p> Stock : {{selectedUser.username}} </p>\n  \n        <p> Souhaitez-vous supprimer le compte de l'utilisateur ?</p>\n  \n        <button class=\"btn btn-danger\" (click)=\"deleteUser()\">Supprimer</button>\n      </section>\n  </div>\n  <div *ngIf=\"operation == 'SUCCED'\" class=\"customMessage\">\n      <section id=\"deleteUser\">\n        <p *ngIf=\"operation == 'SUCCED'\">{{JSONResponse}} </p>\n  \n        <button class=\"btn btn-success\" (click)=\"initPage()\">OK</button>\n      </section>\n  </div>\n  </main>"
+module.exports = "<main *ngIf=\"isLogged\" class=\"container-fluid\">\n    <div class=\"table-wrapper col-lg-10\">\n        <section class=\"table-title\">\n              <div class=\"row\">\n                  <div class=\"col-sm-6\">\n                      <h2>Gestion des Clients</h2>\n                  </div>\n              </div>\n          </section>\n        <table class=\"table table-striped table-hover\">\n          <thead>\n              <tr>\n                <th>id client</th>\n                <th>Nom</th>\n                <th>Prénom</th>\n                <th>pseudo</th>\n                <th>compte activé</th>\n                <th>code promotion</th> \n                <th>action</th>\n              </tr>     \n          </thead>\n          <tbody>\n            <tr *ngFor=\"let user of users\">\n              <td> {{user.idUser}} </td>\n              <td> {{user.lastName}} </td>\n              <td> {{user.firstName}} </td>\n              <td> {{user.username}} </td>\n              <td> {{user.valid == false ? 'En attente' : 'validé'}} </td>\n              <td> {{user.promotion == false ? 'pas de promotion' : 'promotion accordée'}} \n                    <button class=\"btn\" (click)=\"selectedUser = user; promo(false)\"><i class=\"fas fa-times\"></i></button>\n                    <button class=\"btn\" (click)=\"selectedUser = user; promo(true)\"><i class=\"fas fa-plus\"></i></button>\n              </td>\n              <td class=\"crudTD\">\n                  <button *ngIf=\"user.valid == false\" class=\"btn\" (click)=\"selectedUser = user; operation = 'EDIT'\">\n                      <i class=\"fas fa-check\"></i>\n                  </button>\n                  <button class=\"btn\" (click)=\"selectedUser = user; operation = 'REMOVE'\">\n                      <i class=\"fas fa-trash-alt\"></i>\n                  </button>\n              </td>\n            </tr>\n              <tr>\n          </tbody>\n        </table>\n    </div>\n  \n    <!-- FORM FOR CRUD PRODUCT -->\n    <div *ngIf=\"operation == 'EDIT'\" class=\"customForm col-lg-4 col-md-6\">\n        <section id=\"validUser\">\n            <strong>\n              <p class=\"titleForm\"> Valider l'inscription ?\n              </p>\n              <button class=\"btn customBtnLeave\" (click)=\"initOperation()\" id=\"quitter\"><i class=\"fas fa-times\"></i></button>\n          </strong>\n            <p *ngIf=\"operation == 'EDIT'\">Id utlisateur : {{selectedUser.idUser}} </p>\n      \n            <p> Nom : {{selectedUser.lastName}} </p>\n      \n            <p> Prénom : {{selectedUser.firstName}} </p>\n      \n            <p> Pseudo : {{selectedUser.username}} </p>\n      \n            <p> Souhaitez-vous supprimer le compte de l'utilisateur ?</p>\n      \n            <button class=\"btn btn-success\" (click)=\"validAccount()\">Confirmer</button>\n          </section>\n    </div>\n  \n  <div *ngIf=\"operation == 'REMOVE'\" class=\"customForm\">\n      <section id=\"deleteUser\">\n        <strong>\n          <p class=\"titleForm\"> Supprimer Produit\n          </p>\n          <button class=\"btn customBtnLeave\" (click)=\"initOperation()\" id=\"quitter\"><i class=\"fas fa-times\"></i></button>\n      </strong>\n        <p *ngIf=\"operation == 'REMOVE'\">Id utilisateur : {{selectedUser.idUser}} </p>\n  \n        <p> Nom : {{selectedUser.lastName}} </p>\n  \n        <p> Prénom : {{selectedUser.firstName}} </p>\n  \n        <p> Pseudo : {{selectedUser.username}} </p>\n  \n        <p> Souhaitez-vous supprimer le compte de l'utilisateur ?</p>\n  \n        <button class=\"btn btn-danger\" (click)=\"deleteUser()\">Supprimer</button>\n      </section>\n  </div>\n  <div *ngIf=\"operation == 'SUCCED'\" class=\"customMessage\">\n      <section id=\"deleteUser\">\n        <p *ngIf=\"operation == 'SUCCED'\">{{JSONResponse}} </p>\n  \n        <button class=\"btn btn-success\" (click)=\"initPage()\">OK</button>\n      </section>\n  </div>\n  </main>"
 
 /***/ }),
 

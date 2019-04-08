@@ -16,8 +16,7 @@ public class WebConfig implements WebMvcConfigurer {
 	//Cette classe va permettre d'indiquer à spring lors du lancement d'accéder aux nom des url définis coté clien avec angular
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-
-        registry.addResourceHandler("//*")
+        registry.addResourceHandler("/**/*") // !!! Permet d'acceder aux url coté front à double chemin /** et /**/**
                 .addResourceLocations("classpath:/static/")
                 .resourceChain(true)
                 .addResolver(new PathResourceResolver() {

@@ -2,7 +2,9 @@ package com.broderieDor.model.basket;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -41,7 +43,7 @@ public class Basket {
 	@Length(max = 100)
 	private String urlPhoto;
 	
-	@OneToMany(mappedBy="basket")
+	@OneToMany(mappedBy="basket", cascade=CascadeType.ALL)
 	private List<BasketLine> basketLines;
 
 

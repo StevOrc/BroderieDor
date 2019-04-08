@@ -52,13 +52,13 @@
               </p>
               <button class="btn customBtnLeave" (click)="initOperation()" id="quitter"><i class="fas fa-times"></i></button>
           </strong>
-            <p *ngIf="operation == 'EDIT'">Id produit : {{selectedUser.idUser}} </p>
+            <p *ngIf="operation == 'EDIT'">Id utlisateur : {{selectedUser.idUser}} </p>
       
-            <p> Nom produit : {{selectedUser.lastName}} </p>
+            <p> Nom : {{selectedUser.lastName}} </p>
       
-            <p> Prix : {{selectedUser.firstName}} </p>
+            <p> Prénom : {{selectedUser.firstName}} </p>
       
-            <p> Stock : {{selectedUser.username}} </p>
+            <p> Pseudo : {{selectedUser.username}} </p>
       
             <p> Souhaitez-vous supprimer le compte de l'utilisateur ?</p>
       
@@ -73,13 +73,13 @@
           </p>
           <button class="btn customBtnLeave" (click)="initOperation()" id="quitter"><i class="fas fa-times"></i></button>
       </strong>
-        <p *ngIf="operation == 'REMOVE'">Id produit : {{selectedUser.idUser}} </p>
+        <p *ngIf="operation == 'REMOVE'">Id utilisateur : {{selectedUser.idUser}} </p>
   
-        <p> Nom produit : {{selectedUser.lastName}} </p>
+        <p> Nom : {{selectedUser.lastName}} </p>
   
-        <p> Prix : {{selectedUser.firstName}} </p>
+        <p> Prénom : {{selectedUser.firstName}} </p>
   
-        <p> Stock : {{selectedUser.username}} </p>
+        <p> Pseudo : {{selectedUser.username}} </p>
   
         <p> Souhaitez-vous supprimer le compte de l'utilisateur ?</p>
   

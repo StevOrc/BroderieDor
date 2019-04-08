@@ -50,15 +50,16 @@ public class BroderieDorApplication implements CommandLineRunner{
 	// This method will be run at first when the applicationn is launched
 	@Override
 	public void run(String... args) throws Exception {
-//		initRole();
-//		initTheme();
-//		initProduct();
-//		initBakset();
-//		initUser();
+		initRole();
+		initTheme();
+		initProduct();
+		initBakset();
+		initUser();
 	}
 	
 	// This method will initiate Roles 
 	public  void initRole() {
+//		roleRepo.deleteAll();
 		Role admin = new Role(RoleName.ROLE_ADMIN);
 		Role user = new Role(RoleName.ROLE_USER);
 		Role vip = new Role(RoleName.ROLE_VIP);
@@ -67,6 +68,7 @@ public class BroderieDorApplication implements CommandLineRunner{
 	
 	// This method will initiate theme
 	public void initTheme() {
+//		this.themeRepo.deleteAll();
 		Theme naissance = new Theme("Naissance", "3 paniers pour bébé");
 		Theme bapteme = new Theme("Baptême", "2 paniers pour baptême");
 		Theme mariage = new Theme("Mariage", "2 paniers pour mariage");
@@ -76,6 +78,7 @@ public class BroderieDorApplication implements CommandLineRunner{
 	
 	// This method will initiate product
 	public void initProduct() {
+//		this.productRepo.deleteAll();
 		this.productRepo.save(new Product("Bavoir", 5f, 10, "bavoir"));
 		this.productRepo.save(new Product("Body bebe", 6f, 10, "body_bebe"));
 		this.productRepo.save(new Product("Bonnet bebe blanc", 7f, 10, "bonnet_bebe_blanc"));
@@ -112,6 +115,7 @@ public class BroderieDorApplication implements CommandLineRunner{
 	
 	// This method will initiate product
 	public void initBakset() {
+//		this.basketRepo.deleteAll();
 		this.basketRepo.save(new Basket("Bronze", 49, this.themeRepo.findByName("naissance"),"naissance_bronze"));
 		this.basketRepo.save(new Basket("argent", 89, this.themeRepo.findByName("naissance"),"naissance_argent"));
 		this.basketRepo.save(new Basket("or", 109, this.themeRepo.findByName("naissance"),"naissance_or"));
@@ -129,6 +133,7 @@ public class BroderieDorApplication implements CommandLineRunner{
 	
 	// This method will initiate product
 		public void initUser() {
+//			this.userRepo.deleteAll();
 			User admin = new User("Orcun", "Steven", "stev1@gmail.com", "0695875045", "stev1", encoder.encode("012345"));
 			Role adminRole = roleRepo.findByName(RoleName.ROLE_ADMIN).get();
 			Set<Role> roles = new HashSet<>();
